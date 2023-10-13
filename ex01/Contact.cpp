@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 17:30:30 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/10/13 18:43:30 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/10/13 19:30:37 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,3 +63,10 @@ std::string Contact::getDarkestSecret()
 	return (this->darkestSecret);
 }
 
+Contact::Contact()
+{
+}
+
+Contact::~Contact()
+{
+}
