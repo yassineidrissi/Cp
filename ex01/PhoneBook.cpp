@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include <iostream>
 
 PhoneBook::PhoneBook()
 {
@@ -20,31 +21,50 @@ PhoneBook::~PhoneBook()
 {
 }
 
-void PhoneBook::SetContact(PhoneBook *pb, int *index)
+int PhoneBook::SetContact(int index,int parm, std::string name)
 {
-	std::stirng name;
-	int none = 0;
-	std::cout << GREEN_TEXT <<"what is your first name ? " <<std::endl << RESET_TEXT << ">>";
-	std::getline(std::cin, name);
-	this->contact[*index].setFirstName(name);
-	pb->contact[i].setFirstName(name);
-	std::cout << GREEN_TEXT <<"what is your last name ? " << std::endl<< RESET_TEXT << ">>";
-	std::getline(std::cin, name);
-	pb->contact[i].setLastName(name);
-	std::cout << GREEN_TEXT <<"what is your nickname ? " << std::endl << RESET_TEXT<< ">>";
-	std::getline(std::cin, name);
-	pb->contact[i].setNickName(name);
-	std::cout << GREEN_TEXT <<"what is your phone number ? " << std::endl << RESET_TEXT<< ">>";
-	std::getline(std::cin, name);
-	pb->contact[i].setPhoneNumber(name);
-	std::cout << GREEN_TEXT <<"what is your darkest secret ? " << std::endl<< RESET_TEXT << ">>";
-	std::getline(std::cin, name);
-	pb->contact[i].setDarkestSecret(name);
-	if(pb->contact[i].getFirst() && pb->contact[i].getLastName() && pb->contact[i].getNickName() && pb->contact[i].getDarketSecret())
-		*index++;
-	else
-		std::cout << RED_TEXT << "Error" << std::endl << "you must fill all the fields" << std::endl;
+
+	if(name == "")
+	{
+		if(std::cin.eof())
+			return (std::cout <<std::endl, -1);
+		std::cout <<RED_TEXT << "Error" << std::endl << "There is no pararmetre"<< std::endl << RESET_TEXT;
+		return 0;
+	}
+	else if(!parm)
+		this->contact[index].setFirstName(name);
+	else if (parm == 1)
+		this->contact[index].setLastName(name);
+	else if (parm == 2)
+		this->contact[index].setNickName(name);
+	else if (parm == 3)
+		this->contact[index].setPhoneNumber(name);
+	else if (parm == 4)
+		this->contact[index].setDarkestSecret(name);
+	return 1;
 }
+	// std::string name;
+	// int none = 0;
+	// std::cout << GREEN_TEXT <<"what is your first name ? " <<std::endl << RESET_TEXT << ">>";
+	// std::getline(std::cin, name);
+	// this->contact[*index].setFirstName(name);
+	// pb->contact[i].setFirstName(name);
+	// std::cout << GREEN_TEXT <<"what is your last name ? " << std::endl<< RESET_TEXT << ">>";
+	// std::getline(std::cin, name);
+	// pb->contact[i].setLastName(name);
+	// std::cout << GREEN_TEXT <<"what is your nickname ? " << std::endl << RESET_TEXT<< ">>";
+	// std::getline(std::cin, name);
+	// pb->contact[i].setNickName(name);
+	// std::cout << GREEN_TEXT <<"what is your phone number ? " << std::endl << RESET_TEXT<< ">>";
+	// std::getline(std::cin, name);
+	// pb->contact[i].setPhoneNumber(name);
+	// std::cout << GREEN_TEXT <<"what is your darkest secret ? " << std::endl<< RESET_TEXT << ">>";
+	// std::getline(std::cin, name);
+	// pb->contact[i].setDarkestSecret(name);
+	// if(pb->contact[i].getFirst() && pb->contact[i].getLastName() && pb->contact[i].getNickName() && pb->contact[i].getDarketSecret())
+	// 	index++;
+	// else
+	// 	std::cout << RED_TEXT << "Error" << std::endl << "you must fill all the fields" << std::endl;
 
 void PhoneBook::PrintContact(std::string Name, int index, int varName)
 {

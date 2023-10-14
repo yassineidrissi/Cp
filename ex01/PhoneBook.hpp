@@ -14,15 +14,17 @@
 
 #include "Contact.hpp"
 
+std::string getstring(int i);
+
 class PhoneBook
 {
 	public:
 		PhoneBook();
 		~PhoneBook();
-		void	SetContact(PhoneBook *pb, int *index);
+		int		SetContact(int index,int parm, std::string name);
 		void	PrintContact(std::string Name,int index,int VarName);
 	private:
-		int index;
+		// int index;
 		Contact contact[8];
 };
 
