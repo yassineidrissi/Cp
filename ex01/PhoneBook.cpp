@@ -28,7 +28,7 @@ int PhoneBook::SetContact(int index,int parm, std::string name)
 	{
 		if(std::cin.eof())
 			return (std::cout <<std::endl, -1);
-		std::cout <<RED_TEXT << "Error" << std::endl << "There is no pararmetre"<< std::endl << RESET_TEXT;
+		std::cout <<RED_TEXT << getstring(-1) << "There is no pararmetre"<< std::endl << RESET_TEXT;
 		return 0;
 	}
 	else if(!parm)
@@ -42,6 +42,22 @@ int PhoneBook::SetContact(int index,int parm, std::string name)
 	else if (parm == 4)
 		this->contact[index].setDarkestSecret(name);
 	return 1;
+}
+
+std::string PhoneBook::GetContact(int index, int parm)
+{
+	if(!parm)
+		return this->contact[index].getFirstName();
+	else if (parm == 1)
+		return this->contact[index].getLastName();
+	else if (parm == 2)
+		return this->contact[index].getNickName();
+	else if (parm == 3)
+		return this->contact[index].getPhoneNumber();
+	else if (parm == 4)
+		return this->contact[index].getDarkestSecret();
+	else
+		return getstring(-1);
 }
 	// std::string name;
 	// int none = 0;
@@ -66,10 +82,10 @@ int PhoneBook::SetContact(int index,int parm, std::string name)
 	// else
 	// 	std::cout << RED_TEXT << "Error" << std::endl << "you must fill all the fields" << std::endl;
 
-void PhoneBook::PrintContact(std::string Name, int index, int varName)
-{
-	if (varName == 0)
-		std::cout << std::setw(10) << index << "|";
-	else
-		std::cout << std::setw(10) << Name << "|";
-}
+// void PhoneBook::PrintContact(std::string Name, int index, int varName)
+// {
+// 	if (varName == 0)
+// 		std::cout << std::setw(10) << index << "|";
+// 	else
+// 		std::cout << std::setw(10) << Name << "|";
+// }

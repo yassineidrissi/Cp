@@ -19,15 +19,15 @@ std::string	getword(std::string const& string)
 
 std::string getstring(int i)
 {
-	if (i == 0) return "first name";
-	else if(i == 1) return "last name";
-	else if (i == 2) return "nickname";
-	else if (i == 3) return "phone number";
-	else if (i == 4) return "darkest secret";
-	else return "Error";
+	if (i == 0)     return  " first  name  ";
+	else if(i == 1) return  " last   name  ";
+	else if (i == 2) return "  Nickname    ";
+	else if (i == 3) return "Phone  number ";
+	else if (i == 4) return "Darkest secret";
+	else return "Error\n";
 }
 
-void getfunctions(PhoneBook *pb, int index)
+void SetFunctions(PhoneBook *pb, int index)
 {
 	int i = 0;
 	std::string name;
@@ -37,6 +37,39 @@ void getfunctions(PhoneBook *pb, int index)
 		std::getline(std::cin, name);
 		i += pb->SetContact(index, i, name);
 	}
+	if (!index)
+		std::cout << YELLOW_TEXT << "THANKS FOR GIVING US YOUR INFORMATIONS 🤫"<< RESET_TEXT << std::endl;
+}
+
+void GetFunctions(PhoneBook *pb, int i)
+{
+		std::string input;
+					std::cout<<GREEN_TEXT << std::setw(10) << "Index" << "|" << std::setw(10) << "First Name" << "|" << std::setw(10) << "Last Name" << "|" << std::setw(10) << "Nickname" << "|" << std::setw(10) <<"Phone Num" << "|" << std::setw(10) << "darkest Se"<< "|" << std::endl;
+		for(int j = 0; j < i; j++)
+		{
+			std::cout << std::setw(10) << j+ 1 << "|";
+			for(int n = 0; n < 5; n++)
+				std::cout << std::setw(10) << pb->GetContact(j, n)<< "|";
+			std::cout << std::endl;
+			// std::cout << std::setw(10) << j + 1 << "|" << std::setw(10) << getword(pb->GetContact()) << "|" << std::setw(10) << getword(pb.contact[j].getLastName()) << "|" << std::setw(10) << getword(pb.contact[j].getNickName()) << "|" << std::setw(10) << getword(pb.contact[j].getPhoneNumber()) << "|" << std::setw(10) << getword(pb.contact[j].getDarkestSecret()) << "|" << std::endl;
+		}
+		std::cout << std::endl <<"give us the index of the pb.contact u want to see ?" << std::endl << RESET_TEXT<<">>";
+		std::getline(std::cin, input);
+		int h = std::atoi(input.c_str());
+		if (h < 1 || h > 8 || h > i)
+		{
+			std::cout << "Error" << std::endl << "Wrong number" << std::endl;
+			return ;
+		}
+		for(int l = 0; l < 5 ; l++)
+			std::cout << " the value of your " << getstring(l) << " is : " << BLUE_TEXT << std::setw(1) << pb->GetContact(h - 1, l) << RESET_TEXT << std::endl;
+		
+		// std::cout << "the value of ur " << getstring(k++) << " is:     " << BLUE_TEXT << std::setw(2) << pb.contact[h - 1].getFirstName() << RESET_TEXT << std::endl;
+		// std::cout << "the value of ur " << getstring(k++) << " is:      " << BLUE_TEXT << std::setw(2) << pb.contact[h - 1].getLastName() << RESET_TEXT << std::endl;
+		// std::cout << "the value of ur " << getstring(k++) << " is:       " << BLUE_TEXT << std::setw(2) << pb.contact[h - 1].getNickName() << RESET_TEXT << std::endl;
+		// std::cout << "the value of ur " << getstring(k++) << " is:   " << BLUE_TEXT << std::setw(2) << pb.contact[h - 1].getPhoneNumber() << RESET_TEXT << std::endl;
+		// std::cout << "the value of ur " << getstring(k++) << " is: " << BLUE_TEXT << std::setw(2) << pb.contact[h - 1].getDarkestSecret() << RESET_TEXT << std::endl;
+		// }
 }
 
 int main()
@@ -56,8 +89,16 @@ int main()
 		if(input == "EXIT" || std::cin.eof())
 			return(0);
 		else if(input == "ADD")
-			getfunctions(&pb, i++);
-		// else if(input=="SEARCH")
+		{
+			if(i < 8)
+				SetFunctions(&pb, i++);
+			else
+				std::cout << RED_TEXT << "We Can't add more Contacs because we rush the maximum" << RESET_TEXT << std::endl; 
+		}
+		else if(input=="SEARCH")
+			GetFunctions(&pb, i);
+	}
+}
 		// {
 		// 	std::cout<<GREEN_TEXT << std::setw(10) << "Index" << "|" << std::setw(10) << "First Name" << "|" << std::setw(10) << "Last Name" << "|" << std::setw(10) << "Nickname" << "|" << std::setw(10) <<"Phone Num" << "|" << std::setw(10) << "darkest Se"<< "|" << std::endl;
 		// 	for(int j = 0; j < i; j++)
@@ -78,7 +119,7 @@ int main()
 		// 	std::cout << "the value of ur " << getstring(k++) << " is:   " << BLUE_TEXT << std::setw(2) << pb.contact[h - 1].getPhoneNumber() << RESET_TEXT << std::endl;
 		// 	std::cout << "the value of ur " << getstring(k++) << " is: " << BLUE_TEXT << std::setw(2) << pb.contact[h - 1].getDarkestSecret() << RESET_TEXT << std::endl;
 		// }
-	}
+	// }
 			// pb->contact[i].setFirstName(name);
 			// std::cout << GREEN_TEXT <<"what is your last name ? " << std::endl<< RESET_TEXT << ">>";
 			// std::getline(std::cin, name);
@@ -109,6 +150,6 @@ int main()
 	pb.contact[i].setFirstName(name);
 	std::cout <<"the value of ur pb.contact is " << pb.contact[i].getFirstName() << std::endl;
 	*/
-}
+// }
 
 // if (std::cin.endf() == std::cin)

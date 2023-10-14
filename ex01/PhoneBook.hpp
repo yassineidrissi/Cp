@@ -21,8 +21,8 @@ class PhoneBook
 	public:
 		PhoneBook();
 		~PhoneBook();
-		int		SetContact(int index,int parm, std::string name);
-		void	PrintContact(std::string Name,int index,int VarName);
+		int			SetContact(int index,int parm, std::string name);
+		std::string	GetContact(int index,int VarName);
 	private:
 		// int index;
 		Contact contact[8];
