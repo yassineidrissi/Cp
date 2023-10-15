@@ -6,23 +6,24 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 17:07:34 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/10/14 23:31:36 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/10/14 23:51:06 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 #include <sys/time.h>
 #include <iostream>
-#include <ctime>
+#include <iomanip>
 
-
+int	Account::_nbAccounts = 0;
+int Account::_totalAmount = 0;
+int Account::_totalNbDeposits = 0;
+int Account::_totalNbWithdrawals = 0;
 
 void _displayTimestamp(void)
 {
 	std::time_t t = std::time(NULL);
-	std::tm *time = std::localtime(&t);
-	
-	std::cout << "[" << time->tm_year + 1900;
+	std::cout << std::put_time(localtime(&t), "[%Y%m%d_%H%M%S]" );
 }
 
 void Account::displayAccountsInfos(void)
