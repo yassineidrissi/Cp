@@ -6,12 +6,12 @@
 #    By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 17:07:05 by yaidriss          #+#    #+#              #
-#    Updated: 2023/10/14 23:44:52 by yaidriss         ###   ########.fr        #
+#    Updated: 2023/10/15 18:01:09 by yaidriss         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
-FLAGE = #-Wall -Wextra -Werror -std=c++98
+FLAGE = -Wall -Wextra -Werror -std=c++98
 NAME = Account
 SRC = Acount.cpp tests.cpp
 OBJ = $(SRC:.cpp=.o)
