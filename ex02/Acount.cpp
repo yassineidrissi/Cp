@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 17:07:34 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/10/15 19:24:53 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/10/15 20:39:27 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,33 +111,3 @@ Account::Account(int initial_deposit)
 	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";created" << std::endl;
 }
- 
-
-
-
-// [19920104_091532] index:2;amount:957;created
-
-
-
-// Account::Account(int initial_deposit)
-// {
-// 	this->_accountIndex = _nbAccounts;
-// 	this->_amount = initial_deposit;
-// 	this->_nbDeposits = 0;
-// 	this->_nbWithdrawals = 0;
-// 	_nbAccounts++;
-// 	_totalAmount += initial_deposit;
-// 	_displayTimestamp();
-// 	std::cout << "index:" << this->_accountIndex << ";amount:" << this->_amount << ";created" << std::endl;
-// }
-
-// Account::~Account(void)
-// {
-// 	_displayTimestamp();
-// 	std::cout << "index:" << this->_accountIndex << ";amount:" << this->_amount << ";closed" << std::endl;
-// }
-
-// int Account::getNbAccounts(void)
-// {
-// 	return _nbAccounts;
-// }

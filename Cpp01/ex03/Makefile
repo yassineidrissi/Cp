@@ -1,7 +1,19 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/10/14 17:07:05 by yaidriss          #+#    #+#              #
+#    Updated: 2023/10/17 20:08:02 by yaidriss         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 CC = c++
 FLAGE = -Wall -Wextra -Werror -std=c++98
-NAME = PhoneBook
-SRC = main.cpp Contact.cpp PhoneBook.cpp
+NAME = violence
+SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
 
 %.o : %.cpp
@@ -27,7 +39,7 @@ fclean : clean
 	@echo "\033[31m Delete exucted file🗑\033[31m"
 re : fclean all
 
-# run : re
-# 	@./$(NAME)
+run : re
+	@./$(NAME)
 
 .PHONY : all clean fclean re
