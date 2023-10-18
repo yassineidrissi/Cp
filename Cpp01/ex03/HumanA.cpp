@@ -3,19 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 20:41:52 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/10/17 21:42:41 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/10/18 15:08:30 by agimi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string name, class Weapon Weapon)
+HumanA::HumanA(std::string name, Weapon& weap) :
+	name(name), weapon(weap)
 {
-	this->name = name;
-	this->Weapon = Weapon;
 }
 
 HumanA::~HumanA()
@@ -25,5 +24,5 @@ HumanA::~HumanA()
 
 void HumanA::attack( void )
 {
-	std::cout << this->name <<"attacks With their " << this->Weapon.getType() << std::endl;
+	std::cout << this->name <<"attacks With their " << this->weapon.getType() << std::endl;
 }
