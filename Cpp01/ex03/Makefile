@@ -13,7 +13,7 @@
 CC = c++
 FLAGE = -Wall -Wextra -Werror -std=c++98
 NAME = violence
-SRC = main.cpp
+SRC = main.cpp HumanA.cpp HumanB.cpp
 OBJ = $(SRC:.cpp=.o)
 
 %.o : %.cpp

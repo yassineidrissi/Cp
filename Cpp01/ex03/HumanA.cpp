@@ -12,10 +12,10 @@
 
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string name, Weapon *Weapon)
+HumanA::HumanA(std::string name, class Weapon Weapon)
 {
 	this->name = name;
-	this->Weapon = Weapon;
+	this->Weapon = &Weapon;
 }
 
 HumanA::~HumanA()
