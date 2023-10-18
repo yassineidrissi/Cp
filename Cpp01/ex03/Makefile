@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+         #
+#    By: agimi <agimi@student.1337.ma>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 17:07:05 by yaidriss          #+#    #+#              #
-#    Updated: 2023/10/17 20:08:02 by yaidriss         ###   ########.fr        #
+#    Updated: 2023/10/18 15:08:53 by agimi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
 FLAGE = -Wall -Wextra -Werror -std=c++98
 NAME = violence
-SRC = main.cpp HumanA.cpp HumanB.cpp
+SRC = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 OBJ = $(SRC:.cpp=.o)
 
 %.o : %.cpp
