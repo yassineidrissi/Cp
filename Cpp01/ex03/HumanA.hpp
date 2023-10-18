@@ -12,16 +12,16 @@
 
 #pragma once
 
-#include <iostream>
 #include "Weapon.hpp"
 
 class HumanA
 {
 		private:
 			std::string name;
-			Weapon *Weapon;
+			Weapon& Weapon;
+			HumanA();//why we need to put this here ?
 		public:
 			HumanA(std::string name, class Weapon Weapon);
 			~HumanA();
-			void attack( void );		
+			void attack( void ) ;		
 };

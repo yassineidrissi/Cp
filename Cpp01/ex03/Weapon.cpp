@@ -17,6 +17,8 @@ Weapon::Weapon(std::string type)
 	this->type = type;
 }
 
+//! Here we can also work with this->seTtype(type);
+
 Weapon::~Weapon()
 {
 

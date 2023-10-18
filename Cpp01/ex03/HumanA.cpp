@@ -15,7 +15,7 @@
 HumanA::HumanA(std::string name, class Weapon Weapon)
 {
 	this->name = name;
-	this->Weapon = &Weapon;
+	this->Weapon = Weapon;
 }
 
 HumanA::~HumanA()
@@ -25,5 +25,5 @@ HumanA::~HumanA()
 
 void HumanA::attack( void )
 {
-	std::cout << this->name <<"attacks With their " << this->Weapon->getType() << std::endl;
+	std::cout << this->name <<"attacks With their " << this->Weapon.getType() << std::endl;
 }
