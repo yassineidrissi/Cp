@@ -1,0 +1,8 @@
+Makefile
+main.cpp main main aamain
+main.o
+replace
+replace.cpp
+replace.hpp
+replace.o
+test

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   replace.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yassine <yassine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 15:49:19 by yassine           #+#    #+#             */
-/*   Updated: 2023/10/18 16:26:43 by yassine          ###   ########.fr       */
+/*   Updated: 2023/10/19 19:36:40 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,4 +14,6 @@
 
 #include <iostream>
 #include <string>
-#include <ifstream>
+#include <fstream>
+
+void ft_replace(std::ofstream &newfd, std::ifstream &inf, std::string s1, std::string s2);
