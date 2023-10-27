@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 13:05:59 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/10/27 12:53:35 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/10/27 18:25:49 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,3 +141,66 @@ void Fixed::SetValue(int Add)
 	this->value = Add;
 }
 
+bool Fixed::operator>(const Fixed& other)
+{
+	if (this->value > other.value)
+		return true;
+	else 
+		return false;
+}
+
+bool Fixed::operator<(const Fixed& other)
+{
+	return (!operator>(other));
+}
+
+bool Fixed::operator<=(const Fixed& other)
+{
+	if (this->value <= other.value)
+		return true;
+	else 
+		return false;
+}
+
+bool Fixed::operator>=(const Fixed& other)
+{
+	if (this->value >= other.value)
+		return true;
+	else 
+		return false;
+}
+
+bool Fixed::operator==(const Fixed& other)
+{
+	if (this->value == other.value) 
+		return true;
+	else
+		return false;
+}
+
+bool Fixed::operator!=(const Fixed& other)
+{
+	return !operator==(other);
+}
+
+Fixed Fixed::operator+(const Fixed& other)
+{
+	return (this->toFloat() + other.toFloat());
+	// return Fixed(((float)(this->value + other.value))/(1 << other.bits));
+}
+
+Fixed Fixed::operator-(const Fixed& other)
+{
+	return Fixed(((this->value- other.value)))/(1 << other.bits);
+	// return (this->toFloat() - other.toFloat());
+}
+
+Fixed Fixed::operator*(const Fixed& other)
+{
+	return Fixed(this->toFloat() * other.toFloat());
+}
+
+Fixed Fixed::operator/(const Fixed& other)
+{
+ 	return Fixed(this->value / other.value);
+}

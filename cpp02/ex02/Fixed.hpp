@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 13:06:10 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/10/27 12:52:28 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/10/27 14:09:13 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,31 @@ public:
 	static Fixed min(Fixed &a, Fixed &b);
 	float toFloat( void ) const;
 	int toInt(void) const;
-	Fixed& operator++();
+	Fixed& operator++();//pre-increment need to check
 	Fixed operator++(int);
 	Fixed& operator--();
 	Fixed operator--(int);
 	Fixed&  operator=( const Fixed &rhs);
+	// Overload the greater than (>) operator
+    bool operator>(const Fixed& other);
+    // Overload the less than (<) operator
+    bool operator<(const Fixed& other);
+    // Overload the greater than or equal to (>=) operator
+    bool operator>=(const Fixed& other);
+    // Overload the less than or equal to (<=) operator
+    bool operator<=(const Fixed& other) ;
+    // Overload the equality (==) operator
+    bool operator==(const Fixed& other) ;
+    // Overload the inequality (!=) operator
+    bool operator!=(const Fixed& other);
+	// Overload the addition (+) operator
+    Fixed operator+(const Fixed& other);
+    // Overload the subtraction (-) operator
+    Fixed operator-(const Fixed& other);
+    // Overload the multiplication (*) operator
+    Fixed operator*(const Fixed& other);
+    // Overload the division (/) operator
+    Fixed operator/(const Fixed& other);
 	
 };
 

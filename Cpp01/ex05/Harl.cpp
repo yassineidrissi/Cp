@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 19:25:58 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/10/21 16:53:45 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/10/20 20:28:44 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,5 @@ void Harl::complain( std::string level)
 		i++;
 	if(i > 3)
 		return ;
-	std::cout << "[ " << level << " ]"<< std::endl;
 	funcArray[i]();
-    std::cout << std::endl;
 };
