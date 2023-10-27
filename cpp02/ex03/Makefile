@@ -6,14 +6,14 @@
 #    By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 17:07:05 by yaidriss          #+#    #+#              #
-#    Updated: 2023/10/25 18:10:44 by yaidriss         ###   ########.fr        #
+#    Updated: 2023/10/27 01:50:23 by yaidriss         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
 FLAGE = -Wall -Wextra -Werror -std=c++98
 NAME = Fixed
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp Fixed.cpp Point.cpp
 OBJ = $(SRC:.cpp=.o)
 
 %.o : %.cpp
