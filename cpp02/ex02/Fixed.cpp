@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 13:05:59 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/10/25 18:09:19 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/10/27 12:53:35 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,21 @@
 
 Fixed::Fixed(const int n)
 {
-	std::cout << "Int constructor called" << std::endl;
 	this->value = n << bits;
 }
 
 Fixed::Fixed()
 {
-	std::cout << "Default constructor called" << std::endl;
+	this->value = 0;
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
+	
 }
 
 Fixed::Fixed(const float value)
 {
-	std::cout << "Float constructor called" << std::endl;
 	// return static_cast<float>( this->getRawBits() ) / ( 1 << _fractionalBits );
 	// this->value = roundf(value * (1 << bits));
 	this->value = roundf(value * (1 << this->bits));
@@ -44,9 +42,7 @@ int Fixed::toInt() const
 
 Fixed::Fixed(const Fixed &other)
 {
-	std::cout << "Copy constructor called" << std::endl;
 	this->value = other.value;
-	//Or 
 }
 
 float Fixed::toFloat() const
@@ -72,8 +68,76 @@ int Fixed:: GetValue() const
 }
 
 Fixed& Fixed::operator=( const Fixed &rhs ) {
-    std::cout << "Copy assignment operator called" << std::endl;
+	
     if ( this != &rhs )
         this->value = rhs.value;
     return *this;
 }
+
+float operator*(const Fixed &First,const Fixed &Second)
+{
+	return(First.toFloat() * Second.toFloat());
+}
+
+Fixed const Fixed::max(const Fixed &a, const Fixed &b)
+{
+	if (a.toFloat() > b.toFloat())
+		return a;
+	else
+		return b;
+}
+
+Fixed Fixed::max(Fixed &a, Fixed &b)
+{
+	if (a.toFloat() > b.toFloat())
+		return a;
+	else
+		return b;
+}
+
+Fixed const Fixed::min(const Fixed &a, const Fixed &b)
+{
+	if (a.toFloat() > b.toFloat())
+		return b;
+	else
+		return a;
+}
+
+Fixed Fixed::min(Fixed &a, Fixed &b)
+{
+	if (a.toFloat() > b.toFloat())
+		return b;
+	else
+		return a;
+}
+
+
+Fixed& Fixed::operator++()
+{
+	Fixed::SetValue(Fixed::GetValue() + 1);
+	return(*this);
+}
+Fixed Fixed::operator++(int)
+{
+	Fixed old = *this;
+	operator++();
+	return(old);
+}
+
+Fixed& Fixed::operator--()
+{
+	Fixed::SetValue(Fixed::GetValue() - 1);
+	return(*this);
+}
+Fixed Fixed::operator--(int)
+{
+	Fixed old = *this;
+	operator++();
+	return(old);
+}
+
+void Fixed::SetValue(int Add)
+{
+	this->value = Add;
+}
+

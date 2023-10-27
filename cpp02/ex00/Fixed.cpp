@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 13:05:59 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/10/22 16:41:51 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/10/26 22:20:36 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,9 @@ int Fixed::getRawBits() const
 {
 	std::cout << "getRawBits member function called" << std::endl;
 	return (this->value);
+}
+
+Fixed::operator*(const Fixed &First, const Fixed &Second)
+{
+	
 }
