@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 18:12:06 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/10/27 18:18:10 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/10/28 02:59:31 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,12 @@ int main( void )
 	std::cout << a++ << std::endl;
 	std::cout <<" a =" << a << std::endl;
 	std::cout << " b = " << b << std::endl;
-	d = a - b;
+	Fixed e(5.2f);
+	Fixed j(10.4f);
+	d = j/e;
 	std::cout << "d = " << d << std::endl;
 	Fixed k(10.1020f);
+	k = k/e;
 	std::cout << "k = " << k << std::endl;
 	// Fixed c = d - b; // c = b - a don't work 
 	// std::cout << "c = " << c << std::endl;

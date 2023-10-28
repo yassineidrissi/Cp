@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 13:05:59 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/10/27 18:25:49 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/10/28 03:00:24 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,22 +185,32 @@ bool Fixed::operator!=(const Fixed& other)
 
 Fixed Fixed::operator+(const Fixed& other)
 {
-	return (this->toFloat() + other.toFloat());
+	Fixed result;
+	result.value = this->value + other.value;
+	return (result);
 	// return Fixed(((float)(this->value + other.value))/(1 << other.bits));
 }
 
 Fixed Fixed::operator-(const Fixed& other)
 {
-	return Fixed(((this->value- other.value)))/(1 << other.bits);
+	Fixed result;
+	result.value = this->value - other.value;
+	return result;
 	// return (this->toFloat() - other.toFloat());
 }
 
 Fixed Fixed::operator*(const Fixed& other)
 {
-	return Fixed(this->toFloat() * other.toFloat());
+	Fixed result;
+	unsigned long long n;
+	n = this->value * other.value;
+	result.value = (n / (1 << Fixed::Getbits())); 
+	return result;
 }
 
 Fixed Fixed::operator/(const Fixed& other)
 {
- 	return Fixed(this->value / other.value);
+	Fixed result;
+	result.value = (this->value*(1<< Fixed::Getbits()) / other.value);
+	return result;
 }
