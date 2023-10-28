@@ -6,14 +6,13 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 21:34:56 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/10/25 13:08:06 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/10/28 07:17:02 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-int main( void ) 
-{
+int main( void ) {
 	Fixed a;
 	Fixed const b( 10 );
 	Fixed const c( 42.42f );

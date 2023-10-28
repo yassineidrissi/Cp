@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 13:05:59 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/10/28 03:00:24 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/10/28 07:00:55 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,7 @@ Fixed::~Fixed()
 
 Fixed::Fixed(const float value)
 {
-	// return static_cast<float>( this->getRawBits() ) / ( 1 << _fractionalBits );
-	// this->value = roundf(value * (1 << bits));
 	this->value = roundf(value * (1 << this->bits));
-	// std::cout << "value = " << value << "and the this->value = " << this->value << std::endl;
 }
 
 int Fixed::toInt() const
@@ -52,7 +49,6 @@ float Fixed::toFloat() const
 
 std::ostream& operator<<(std::ostream &out, const Fixed &src)
 {
-	// std::cout << "Copy assignement operator called" << std::endl;
 	out << src.toFloat();
 	return out;
 }

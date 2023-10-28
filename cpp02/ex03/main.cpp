@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 01:48:10 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/10/28 06:48:51 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/10/28 07:10:56 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ int main()
 	Point b = Point(10, 0);
 	Point c = Point(5, 5);
 	Point point = Point(50, 5);
-	std::cout << "this is value of " << bsq(a, b, c, point);
+	std::cout << "this is value of bsq is : " << bsq(a, b, c, point);
 }
