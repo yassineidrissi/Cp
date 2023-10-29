@@ -6,13 +6,13 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 23:13:13 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/10/29 23:22:36 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/10/29 23:48:10 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(const std::string& name) : ScavTrap(name)
+FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
 {
 	this->_Hitp = 100;
 	this->_Attackd = 30;
