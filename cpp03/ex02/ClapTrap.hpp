@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 22:25:40 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/10/29 21:55:53 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/10/30 19:40:30 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ class ClapTrap {
 		int _Hitp;
 		int _Energyp;
 		int _Attackd;
-		ClapTrap();
 
 	public:
+		ClapTrap();
 		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap& other);
 		~ClapTrap();

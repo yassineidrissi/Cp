@@ -6,13 +6,13 @@
 #    By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 17:07:05 by yaidriss          #+#    #+#              #
-#    Updated: 2023/10/28 23:30:40 by yaidriss         ###   ########.fr        #
+#    Updated: 2023/10/31 23:16:29 by yaidriss         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
 FLAGE = -Wall -Wextra -Werror -std=c++98
-NAME = aaaand
+NAME = ClapTrap
 SRC = main.cpp ClapTrap.cpp
 OBJ = $(SRC:.cpp=.o)
 
@@ -27,8 +27,7 @@ $(NAME) : $(OBJ)
 	@echo "\033[92m╚═╝██║░░░╚═══██╗░╚═══██╗░░░██╔╝░\033[0m██║╚██╔╝██║██╔══╝░░██║░░██║"
 	@echo "\033[92m███████╗██████╔╝██████╔╝░░██╔╝░░\033[0m██║░╚═╝░██║███████╗██████╔╝"
 	@echo "\033[92m╚══════╝╚═════╝░╚═════╝░░░╚═╝░░░\033[0m╚═╝░░░░░╚═╝╚══════╝╚═════╝░"
-	@echo "\033[92mCREATING .O FILES AND exuctubel of Fixed ⌛\033[0m"
-
+	@echo "\033[92mCREATING .O FILES AND exuctubel of $(NAME) ⌛\033[0m"
 all : $(NAME)
 
 clean :
