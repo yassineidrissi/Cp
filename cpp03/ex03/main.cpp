@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:39:09 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/10/31 23:15:01 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/10/31 23:17:38 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ int main()
 {
 	DiamondTrap d("yaidriss");
 
-	// d.attack("yassine");
-	// d.takeDamage(10);
-	// d.beRepaired(10);
-	// d.guardGate();
-	// d.highFivesGuys();
+	d.attack("yassine");
+	d.takeDamage(10);
+	d.beRepaired(10);
+	d.guardGate();
+	d.highFivesGuys();
 	d.WhoAmI();
 	return (0);
 }

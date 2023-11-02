@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:03:20 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/01 18:24:20 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/11/02 20:16:33 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void Animal::makeSound() const
 	std::cout << "Animal Sound" << std::endl;
 }
 
-std::string& Animal::getType()
+std::string Animal::getType()
 {
 	return (this->type);
 }

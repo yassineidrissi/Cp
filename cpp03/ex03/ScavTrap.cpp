@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 01:33:43 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/10/31 22:35:05 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/11/01 00:03:27 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap " << this->GetName() << " Destructed" << std::endl;
+	std::cout << "ScavTrap " << this->_name << " Destructed" << std::endl;
 }
 
 void ScavTrap::attack(const std::string& target)

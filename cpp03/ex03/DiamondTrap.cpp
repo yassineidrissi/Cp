@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:48:09 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/10/31 22:20:13 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/11/01 00:08:39 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ DiamondTrap::~DiamondTrap()
 
 void DiamondTrap::WhoAmI()
 {
-	std::cout << "HP: " << _Hitp << std::endl;
-	std::cout << "EP: " << _Energyp << std::endl;
-	std::cout << "AD: " << _Attackd << std::endl;
 	std::cout << "DiamondTrap name is " << this->_name << " and his ClapTrap name is " << ClapTrap::_name << std::endl;
 }
+	// std::cout << "_Hitp: " << _Hitp << std::endl;
+	// std::cout << "_Energyp: " << _Energyp << std::endl;
+	// std::cout << "_Attackd: " << _Attackd << std::endl;

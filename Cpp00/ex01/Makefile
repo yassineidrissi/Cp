@@ -27,7 +27,7 @@ fclean : clean
 	@echo "\033[31m Delete exucted file🗑\033[31m"
 re : fclean all
 
-# run : re
-# 	@./$(NAME)
+run : re
+	@./$(NAME)
 
 .PHONY : all clean fclean re

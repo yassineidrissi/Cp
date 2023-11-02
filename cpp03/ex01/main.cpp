@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 01:34:37 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/10/29 23:08:11 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/10/31 23:56:49 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int main( void )
 {
-    ScavTrap ash( "Ash" );
-    ScavTrap ash2( ash );
+    ScavTrap a( "yassine" );
+    ScavTrap a2( a );
 
-    ash.attack( "the air" );
-    ash.takeDamage( 10 );
-    ash.beRepaired( 10 );
-    ash.guardGate();
+    a.attack( "the air" );
+    a.takeDamage( 10 );
+    a.beRepaired( 10 );
+    a.guardGate();
 }

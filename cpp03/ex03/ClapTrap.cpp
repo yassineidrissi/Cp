@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 22:25:48 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/10/31 22:39:26 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/11/01 00:02:44 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,6 @@
 ClapTrap::ClapTrap(std::string name) : _name(name), _Hitp(10), _Energyp(10),_Attackd(0)
 {
 	std::cout << "ClapTrap " << name << " Created " << std::endl;
-	// this->_name = name;
-	// this->_Hitp = 0;
-	// this->_Attackd = 0;
-	// this->_Energyp = 10;
 }
 
 ClapTrap::ClapTrap()
@@ -82,9 +78,4 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& rhs)
 	this->_Energyp = rhs._Energyp;
 	this->_Hitp = rhs._Hitp;
 	return *this;
-}
-
-std::string ClapTrap::GetName()
-{
-	return this->_name;
 }

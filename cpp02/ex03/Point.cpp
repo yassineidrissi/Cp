@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 01:44:08 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/10/28 06:48:28 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/10/29 07:52:26 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,7 @@ bool bsq(Point const a, Point const b, Point const c, Point const point)
 	bb = a.GetValue(false) - aa*a.GetValue(true);
 	ca = (a.GetValue(false) - b.GetValue(false))/(a.GetValue(true) - b.GetValue(true));
 	cb = a.GetValue(false) - aa*a.GetValue(true);
+	std::cout << "the value of aa and bb are :" << aa << bb << std::endl;
 	if((Fx(aa, ab, a, point) == Fx(ba, bb, b, point)) && (Fx(aa, ab, a, point) == Fx(ca, cb, c, point)) && (Fx(ba, bb, b, point) == Fx(ca, cb, c, point)))
 		return true;
 	return false;
