@@ -6,15 +6,16 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:11:07 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/01 18:16:43 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/11/04 13:35:22 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
 Cat::Cat()
-{
+{ 
 	std::cout << "Constractor Cat called" << std::endl;
+	this->type = "Cat";
 }
 
 Cat::~Cat()

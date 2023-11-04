@@ -6,13 +6,13 @@
 #    By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 17:07:05 by yaidriss          #+#    #+#              #
-#    Updated: 2023/11/01 14:24:03 by yaidriss         ###   ########.fr        #
+#    Updated: 2023/11/04 13:27:54 by yaidriss         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
 FLAGE = -Wall -Wextra -Werror -std=c++98
-NAME = DiamondTrap 
+NAME = Polymorphism 
 SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp
 OBJ = $(SRC:.cpp=.o)
 

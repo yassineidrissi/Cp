@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:03:20 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/02 20:16:33 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/11/04 13:36:54 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 Animal::Animal()
 {
 	std::cout << "Animal Constructor Called" << std::endl;
+	this->type = "Animal";
 }
 
 Animal::~Animal()
@@ -24,10 +25,10 @@ Animal::~Animal()
 
 void Animal::makeSound() const
 {
-	std::cout << "Animal Sound" << std::endl;
+	std::cout << "Animal Sound" << std::endl; //!why we use here the const after makeSound()?	
 }
 
-std::string Animal::getType()
+std::string Animal::getType() const //!why we use here the const after getType()?
 {
 	return (this->type);
 }
