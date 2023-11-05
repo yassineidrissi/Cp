@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 14:00:37 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/05 15:41:42 by yaidriss         ###   ########.fr       */
+/*   Created: 2023/11/01 14:11:25 by yaidriss          #+#    #+#             */
+/*   Updated: 2023/11/05 15:49:35 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once 
+#pragma once
 
+#include "Brain.hpp"
 #include "Animal.hpp"
 
-class Dog : public Animal
+class Cat : public Animal
 {
+	private:
+		Brain *b;
 	public:
-		Dog();
-		~Dog();
-		Dog(const Dog &src);
-		const Dog &operator=(const Dog &src);
-		void makeSound() const;
+		Cat();
+		Cat(const Cat &src);
+		~Cat();
+		Brain *getBrain() const;
+		void setBrain(Brain *b);
+		const Cat &operator=(const Cat &other);
+		void makeSound(void) const;
 };

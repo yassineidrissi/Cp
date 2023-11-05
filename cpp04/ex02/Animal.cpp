@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 14:00:37 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/05 15:41:42 by yaidriss         ###   ########.fr       */
+/*   Created: 2023/11/01 14:03:20 by yaidriss          #+#    #+#             */
+/*   Updated: 2023/11/05 15:50:53 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once 
-
 #include "Animal.hpp"
 
-class Dog : public Animal
+Animal::Animal()
 {
-	public:
-		Dog();
-		~Dog();
-		Dog(const Dog &src);
-		const Dog &operator=(const Dog &src);
-		void makeSound() const;
-};
+	std::cout << "Animal Constructor Called" << std::endl;
+	this->type = "Animal";
+}
+
+Animal::~Animal()
+{
+	std::cout << "Animal Destructor Called" << std::endl;
+}
+
+void Animal::makeSound() const
+{
+	std::cout << "Animal Sound" << std::endl; //!why we use here the const after makeSound()?	
+}
+
+std::string Animal::getType() const //!why we use here the const after getType()?
+{
+	return (this->type);
+}

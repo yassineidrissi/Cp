@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 14:00:37 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/05 15:41:42 by yaidriss         ###   ########.fr       */
+/*   Created: 2023/11/04 17:43:34 by yaidriss          #+#    #+#             */
+/*   Updated: 2023/11/04 23:21:39 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 
 #include "Animal.hpp"
 
-class Dog : public Animal
+class Brain
 {
+	private:
+		std::string ideas[100];
 	public:
-		Dog();
-		~Dog();
-		Dog(const Dog &src);
-		const Dog &operator=(const Dog &src);
-		void makeSound() const;
+		Brain();
+		~Brain();
+		Brain(const Brain &src);
+		Brain &operator=(const Brain &src);
+		std::string getIdea(int i);
+		void setIdea(int i, std::string idea);
 };

@@ -6,14 +6,14 @@
 #    By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 17:07:05 by yaidriss          #+#    #+#              #
-#    Updated: 2023/11/04 20:20:27 by yaidriss         ###   ########.fr        #
+#    Updated: 2023/11/05 15:26:23 by yaidriss         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
-FLAGE = -Wall -Wextra -Werror -std=c++98
-NAME = Polymorphism 
-SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp
+FLAGE = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address
+NAME = Brain 
+SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
 OBJ = $(SRC:.cpp=.o)
 
 %.o : %.cpp

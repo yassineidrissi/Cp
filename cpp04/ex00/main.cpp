@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:24:31 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/04 13:32:30 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/11/05 15:44:12 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,8 @@ int main()
 	i->makeSound(); //will output the cat sound!
 	j->makeSound();
 	meta->makeSound();
+	delete j; //should not create a leak
+	delete i;
+	delete meta;
 	return 0;
 }
