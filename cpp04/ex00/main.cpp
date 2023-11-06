@@ -6,26 +6,35 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:24:31 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/05 15:44:12 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/11/06 21:51:28 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 #include "Dog.hpp"
+#include "WrongCat.hpp"
 
 int main()
 {
 	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
-	std::cout << meta->getType() << " " << std::endl;
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
+	const WrongAnimal* wAnimal = new WrongAnimal();
+	const WrongAnimal* wCat = new WrongCat();
+	std::cout << meta->getType()  << std::endl;//need to change the constrocter message in cat and wrongcat
+	std::cout << j->getType()  << std::endl;
+	std::cout << i->getType()  << std::endl;
+	std::cout << wAnimal->getType()  << std::endl;
+	std::cout << wCat->getType()  << std::endl;
 	i->makeSound(); //will output the cat sound!
 	j->makeSound();
 	meta->makeSound();
+	wAnimal->makeSound();
+	wCat->makeSound();
 	delete j; //should not create a leak
 	delete i;
 	delete meta;
+	delete wAnimal;
+	delete wCat;
 	return 0;
 }

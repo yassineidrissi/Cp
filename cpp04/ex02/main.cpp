@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:24:31 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/05 17:41:31 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/11/06 22:12:46 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main( void )
     // std::string test = meta->getType();
     // test += "test";
     // std::cout << meta->getType() << std::endl;// it cause a sigmunet why ?
-    const Animal* j = new Dog();
+    const Animal* j = new Animal();
     const Animal* i = new Cat();
 
 

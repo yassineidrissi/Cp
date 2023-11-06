@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:01:31 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/05 19:33:04 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/11/06 22:10:51 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ class Animal
 	public:
 		Animal();
 		virtual ~Animal();
-		virtual void makeSound() = 0;
+		virtual void makeSound() const;
 		std::string getType() const;
 };

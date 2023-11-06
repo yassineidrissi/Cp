@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:03:20 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/06 22:10:44 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/11/04 13:36:54 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-Animal::Animal()
+WrongAnimal::WrongAnimal()
 {
-	std::cout << "Animal Constructor Called" << std::endl;
-	this->type = "Animal";
+	std::cout << "WrongAnimal Constructor Called" << std::endl;
+	this->type = "WrongAnimal";
 }
 
-Animal::~Animal()
+WrongAnimal::~WrongAnimal()
 {
-	std::cout << "Animal Destructor Called" << std::endl;
+	std::cout << "WrongAnimal Destructor Called" << std::endl;
 }
 
-void Animal::makeSound() const
+void WrongAnimal::makeSound() const
 {
-	std::cout << "Animal Sound" << std::endl; //!why we use here the const after makeSound()?	
+	std::cout << "WrongAnimal Sound" << std::endl; //!why we use here the const after makeSound()?	
 }
 
-std::string Animal::getType() const //!why we use here the const after getType()?
+std::string WrongAnimal::getType() const //!why we use here the const after getType()?
 {
 	return (this->type);
 }

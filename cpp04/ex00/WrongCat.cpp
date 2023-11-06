@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,33 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-Cat::Cat()
+WrongCat::WrongCat()
 { 
-	std::cout << "Constractor Cat called" << std::endl;
-	this->type = "Cat";
+	std::cout << "Constractor WrongCat called" << std::endl;
+	this->type = "WrongCat";
 }
 
-Cat::~Cat()
+WrongCat::~WrongCat()
 {
-	std::cout << "Destructor Cat called" << std::endl;
+	std::cout << "Destructor WrongCat called" << std::endl;
 }
 
-Cat::Cat(const Cat &src)
+WrongCat::WrongCat(const WrongCat &src)
 {
-	std::cout << "Copy Constractor Cat called" << std::endl;
+	std::cout << "Copy Constractor WrongCat called" << std::endl;
 	*this = src;
 }
 
-const Cat& Cat::operator=(const Cat &other)
+const WrongCat& WrongCat::operator=(const WrongCat &other)
 {
-	std::cout << "Assignation Cat called" << std::endl;
+	std::cout << "Assignation WrongCat called" << std::endl;
 	this->type = other.type;
 	return (*this);
 }
 
-void Cat::makeSound() const
+void WrongCat::makeSound() const
 {
-	std::cout << "Cat Sound" << std::endl;
+	std::cout << "WrongCat Sound" << std::endl;
 }
