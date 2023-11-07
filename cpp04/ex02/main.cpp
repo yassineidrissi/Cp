@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:24:31 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/06 22:12:46 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/11/07 15:47:57 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,16 @@ int main( void )
     // std::string test = meta->getType();
     // test += "test";
     // std::cout << meta->getType() << std::endl;// it cause a sigmunet why ?
-    const Animal* j = new Animal();
-    const Animal* i = new Cat();
+    // const Animal* j = new Animal();
+    // const Animal* i = new Cat();
 
 
-    Dog basic;
-    {
-        Dog tmp = basic;
-    }
-	i->makeSound();//will output the cat sound!
-	j->makeSound();
+    // Dog basic;
+    // {
+    //     Dog tmp = basic;
+    // // }
+	// i->makeSound();//will output the cat sound!
+	// j->makeSound();
     
     Cat *c = new Cat();
     Dog *d = new Dog();
@@ -41,8 +41,8 @@ int main( void )
     c->getBrain()->setIdea(1, "i am a cat's idea");
 	std::cout << "we have this value in the brain of the dog d : " << d->getBrain()->getIdea(0) << std::endl;
 	std::cout << "we have this value in the brain of the dog d : " << c->getBrain()-> getIdea(1) << std::endl;
-    // delete d;
-    // delete c;
+    delete d;
+    delete c;
     // delete j;//should not create a leak
     // delete i;
     // Animal *animals[4] = { new Cat(), new Cat(), new Cat(), new Cat() };

@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:11:25 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/05 15:49:35 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/11/07 15:33:23 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Cat : public Animal
 	public:
 		Cat();
 		Cat(const Cat &src);
-		~Cat();
+		virtual ~Cat();
 		Brain *getBrain() const;
 		void setBrain(Brain *b);
 		const Cat &operator=(const Cat &other);

@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:11:07 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/06 21:36:51 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/11/07 15:36:22 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 Cat::Cat()
 { 
-	std::cout << "Constractor Cat called" << std::endl;
+	std::cout << "Cat Constractor called" << std::endl;
 	this->type = "Cat";
 }
 
 Cat::~Cat()
 {
-	std::cout << "Destructor Cat called" << std::endl;
+	std::cout << "Cat Constractor called" << std::endl;
 }
 
 Cat::Cat(const Cat &src)
 {
-	std::cout << "Copy Constractor Cat called" << std::endl;
+	std::cout << "Copy Cat Constractor called" << std::endl;
 	*this = src;
 }
 
@@ -39,4 +39,14 @@ const Cat& Cat::operator=(const Cat &other)
 void Cat::makeSound() const
 {
 	std::cout << "Cat Sound" << std::endl;
+}
+
+Brain *Cat::getBrain() const
+{
+	return (this->b);
+}
+
+void Cat::setBrain(Brain *b)
+{
+	this->b = b;
 }
