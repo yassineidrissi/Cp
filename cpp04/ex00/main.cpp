@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:24:31 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/06 21:51:28 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/11/10 00:25:49 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,17 @@ int main()
 	const Animal* i = new Cat();
 	const WrongAnimal* wAnimal = new WrongAnimal();
 	const WrongAnimal* wCat = new WrongCat();
-	std::cout << meta->getType()  << std::endl;//need to change the constrocter message in cat and wrongcat
+	std::cout << meta->getType()  << std::endl;/
 	std::cout << j->getType()  << std::endl;
 	std::cout << i->getType()  << std::endl;
 	std::cout << wAnimal->getType()  << std::endl;
 	std::cout << wCat->getType()  << std::endl;
-	i->makeSound(); //will output the cat sound!
+	i->makeSound(); 
 	j->makeSound();
 	meta->makeSound();
 	wAnimal->makeSound();
 	wCat->makeSound();
-	delete j; //should not create a leak
+	delete j; 
 	delete i;
 	delete meta;
 	delete wAnimal;

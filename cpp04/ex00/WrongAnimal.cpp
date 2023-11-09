@@ -25,10 +25,8 @@ WrongAnimal::~WrongAnimal()
 
 void WrongAnimal::makeSound() const
 {
-	std::cout << "WrongAnimal Sound" << std::endl; //!why we use here the const after makeSound()?	
-}
-
-std::string WrongAnimal::getType() const //!why we use here the const after getType()?
+	std::cout << "WrongAnimal Sound" << std::endl;
+std::string WrongAnimal::getType() const 
 {
 	return (this->type);
 }

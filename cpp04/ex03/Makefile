@@ -6,14 +6,14 @@
 #    By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 17:07:05 by yaidriss          #+#    #+#              #
-#    Updated: 2023/11/07 17:01:43 by yaidriss         ###   ########.fr        #
+#    Updated: 2023/11/09 21:27:52 by yaidriss         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
-FLAGE = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address
+FLAGE = -Wall -Wextra -Werror -std=c++98
 NAME = Brain 
-SRC = main.cpp 
+SRC = main.cpp AMateria.cpp Cure.cpp Ice.cpp Character.cpp MateriaSource.cpp 
 OBJ = $(SRC:.cpp=.o)
 
 %.o : %.cpp

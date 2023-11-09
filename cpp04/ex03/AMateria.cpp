@@ -6,15 +6,21 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 16:30:47 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/08 16:44:11 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/11/09 21:55:32 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
+AMateria::AMateria()
+{
+	
+}
+
 AMateria::AMateria(std::string const & type)
 {
 	this->_type = type;
+	std::cout << "AMateria " << _type << " is created" << std::endl;
 }
 
 AMateria::AMateria(const AMateria &src)
@@ -39,10 +45,13 @@ std::string const & AMateria::getType() const
 
 void AMateria::use(ICharacter& target)
 {
-	(void)target;
+	std::cout << "AMateria " << _type << " used on " << target.getName() << std::endl;
 }
 
-AMateria* AMateria::clone() const
-{
-	return (new AMateria(*this));
-}
+// AMateria* AMateria::clone() const
+// {
+// 	AMateria *nw = new AMateria();
+// 	nw->_type = this->_type;
+// 	return (nw);
+// 	// return (new AMateria(*this));
+// }
