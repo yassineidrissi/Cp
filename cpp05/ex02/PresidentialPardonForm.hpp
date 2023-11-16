@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureacrat.hpp                                      :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/11 10:07:46 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/11 14:55:44 by yaidriss         ###   ########.fr       */
+/*   Created: 2023/11/14 14:52:09 by yaidriss          #+#    #+#             */
+/*   Updated: 2023/11/14 15:07:38 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once 
+#pragma once
 
 #include <iostream>
-#include <exception>
+#include "AForm.hpp"
 
-class Bureauacrat
+
+class PresidentialPardonForm : public AForm
 {
 	private:
-		std::string name;
-		int grade;
+		std::string _target;
 	public:
-		Bureauacrat();
-		Bureauacrat(std::string name, int grade);
-		Bureauacrat(Bureauacrat const & src);
-		Bureauacrat & operator=(Bureauacrat const & src);
-		~Bureauacrat();
-		std::string getName() const;
-		int getGrade() const;
-		void incrementGrade();
-		void decrementGrade(); 
-}
+		PresidentialPardonForm(std::string target);
+		PresidentialPardonForm(const PresidentialPardonForm &src);
+		PresidentialPardonForm &operator=(const PresidentialPardonForm &src);
+		virtual ~PresidentialPardonForm();
+		void execute(Bureaucrat const &executor) const;
+};

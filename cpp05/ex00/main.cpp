@@ -6,32 +6,33 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 10:07:06 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/11 14:54:14 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/11/15 18:06:33 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "Bureacrat.hpp"
-
-int device(int a, int b)
-{
-	if (b == 0)
-		throw number();
-	return (a / b);
-}
+#include "Bureaucrat.hpp"
 
 int main()
 {
-	int a = 10;
-	int b = 0;
-	int c = 0;	
+	Bureaucrat john("John", 2);
+	Bureaucrat jim("Jim", 149);
 
-	try 
+	try
 	{
-		std::cout << device(a, b) << std::endl;
+		std::cout << john << std::endl;
+		std::cout << jim << std::endl;
+		jim.incrementGrade();
+		john.decrementGrade();
+		std::cout << john << std::endl;
+		std::cout << jim << std::endl;
+		jim.incrementGrade();
+		john.decrementGrade();
+		std::cout << john << std::endl;
+		std::cout << jim << std::endl;
 	}
-	catch (std::exception &e)
+	catch(const std::exception& e)
 	{
-		std::cout << e.what() << std::endl;				
+		std::cerr << e.what() << std::endl;
 	}
 }
