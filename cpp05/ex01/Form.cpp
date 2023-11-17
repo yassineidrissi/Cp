@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:01:30 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/15 22:52:42 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/11/16 23:02:38 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,10 @@ void Form::beSigned(Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() > this->gradeToSign)
 	{
-		std::cout << bureaucrat.getName() << RED <<" is not signed" << this->name << RESET << std::endl;
 		throw Form::GradeTooLowException();
 	}
 	else
 	{
-		std::cout << bureaucrat.getName() << GREEN <<" is signed" << this->name << RESET << std::endl;
 		this->isSigned = true;
 	}
 }
@@ -80,4 +78,18 @@ std::ostream &operator<<(std::ostream &output, const Form &form)
 {
 	output << "Form name is :" <<  BLUE << form.getName()<< RESET << std::endl;
 	return (output);
+}
+
+void Form::signForm(Bureaucrat &b)
+{
+	if (!this->isSigned)
+	{
+		std::cout << b.getName() << RED <<" couldn’t sign " << this->name << RESET << std::endl;
+		throw Form::GradeTooLowException();
+	}
+	else
+	{
+		std::cout << b.getName() << GREEN <<" is signed " << this->name << RESET << std::endl;
+		this->isSigned = true;
+	}
 }

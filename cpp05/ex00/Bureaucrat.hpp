@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 10:07:46 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/12 16:52:50 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/11/17 21:54:22 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,22 +38,15 @@ class Bureaucrat
 		void decrementGrade();
 		std::string getName() const;
 		int getGrade() const;
-		class GradeTooHighException : public std::exception
-		{
-			public:
-				const char* what() const throw()
-				{
-					return (RED "Grade is too high" RESET);
-				}
-		};
-		class GradeTooLowException : public std::exception
-		{
-			public:
-				const char* what() const throw()
-				{
-					return (RED "Grade is too low" RESET);
-				}
-		};
+
+	class GradeTooHighException : public std::exception {
+        public:
+            virtual const char* what() const throw() { return "Grade too high"; }
+    };
+    class GradeTooLowException : public std::exception {
+        public:
+            virtual const char* what() const throw() { return "Grade too low"; }
+    };
 };
 
 std::ostream &operator<<(std::ostream &output, const Bureaucrat &bureaucrat);

@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:01:30 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/16 23:02:38 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/11/14 15:46:09 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,6 @@ AForm::AForm()
 AForm::AForm(AForm const & src)
 {
 	std::cout << GREEN << "AForm Copy Constructor Called" << RESET << std::endl;
-	this->name = src.name;
-	this->isSigned = src.isSigned;
-	this->gradeToExecute = src.gradeToExecute;
 	*this = src;
 }
 
@@ -48,10 +45,12 @@ void AForm::beSigned(Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() > this->gradeToSign)
 	{
+		std::cout << bureaucrat.getName() << RED <<" is not signed" << this->name << RESET << std::endl;
 		throw AForm::GradeTooLowException();
 	}
 	else
 	{
+		std::cout << bureaucrat.getName() << GREEN <<" is signed" << this->name << RESET << std::endl;
 		this->isSigned = true;
 	}
 }
@@ -80,17 +79,30 @@ std::ostream &operator<<(std::ostream &output, const AForm &AForm)
 	return (output);
 }
 
-void AForm::signForm(Bureaucrat &b)
+int AForm::getGradeToSign() const
 {
-	if (!this->isSigned)
+	return (this->gradeToSign);
+}
+
+int AForm::getGradeToExecute() const
+{
+	return (this->gradeToExecute);
+}
+
+void AForm::execute(Bureaucrat const &executor) const
+{
+	if (executor.getGrade() > this->gradeToExecute)
 	{
-		std::cout << b.getName() << RED <<" couldn’t sign " << this->name << RESET << std::endl;
+		std::cout << executor.getName() << RED << " cannot execute " << this->name << RESET << std::endl;
 		throw AForm::GradeTooLowException();
+	}
+	else if (this->isSigned == false)
+	{
+		std::cout << executor.getName() << RED << " cannot execute " << this->name << RESET << std::endl;
+		throw AForm::FormNotSignedException();
 	}
 	else
 	{
-		std::cout << b.getName() << GREEN <<" is signed " << this->name << RESET << std::endl;
-		this->isSigned = true;
+		std::cout << executor.getName() << GREEN << " executes " << this->name << RESET << std::endl;
 	}
 }
-

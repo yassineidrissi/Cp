@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AForm.hpp                                           :+:      :+:    :+:   */
+/*   AAForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:01:38 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/16 23:07:23 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/11/14 15:42:49 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ class AForm
 		AForm & operator=(AForm const & src);
 		std::string getName() const;
 		bool getIsSigned() const;
-		void signForm(Bureaucrat &b);
 		int getGradeToSign() const;
 		int getGradeToExecute() const;
 		void beSigned(Bureaucrat &bureaucrat);//! i don't know how why i used here

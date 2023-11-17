@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:01:38 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/15 18:10:12 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/11/17 23:38:50 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class Form
 		Form & operator=(Form const & src);
 		std::string getName() const;
 		bool getIsSigned() const;
+		void signForm(Bureaucrat &b);
 		int getGradeToSign() const;
 		int getGradeToExecute() const;
 		void beSigned(Bureaucrat &bureaucrat);//! i don't know how why i used here
