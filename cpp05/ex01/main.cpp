@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 18:24:23 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/18 00:02:02 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/11/18 18:09:00 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int main( void )
 {
 
     try {
-        Bureaucrat bureaucrat`111111111("ash",11, 150);
+        Bureaucrat bureaucrat("ash",11);
         Form form("formName", 10, 150);
 
         bureaucrat.signForm(form);
