@@ -1,16 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureacrat.cpp                                      :+:      :+:    :+:   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 22:41:56 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/12 16:42:52 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/11/18 23:37:36 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
+
+class AForm;
 
 Bureaucrat::Bureaucrat()
 {
@@ -71,5 +74,17 @@ void Bureaucrat::decrementGrade()
 	if (this->grade == 1)
 		throw GradeTooLowException();
 	this->grade++;
+}
+
+void Bureaucrat::signForm(Form &form)
+{
+	form.beSigned(*this);
+	
+	try{
+		std::cout << form.getName() << " signs " << std::endl;
+	}
+	catch(const std::exception& e){
+		std::cout << name << " coulnd't sign " << form.getName() << " because " << e.what() << std::endl;
+	}
 }
 

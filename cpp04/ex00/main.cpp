@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:24:31 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/10 00:25:49 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/11/10 22:54:45 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main()
 	const Animal* i = new Cat();
 	const WrongAnimal* wAnimal = new WrongAnimal();
 	const WrongAnimal* wCat = new WrongCat();
-	std::cout << meta->getType()  << std::endl;/
+	std::cout << meta->getType()  << std::endl;
 	std::cout << j->getType()  << std::endl;
 	std::cout << i->getType()  << std::endl;
 	std::cout << wAnimal->getType()  << std::endl;

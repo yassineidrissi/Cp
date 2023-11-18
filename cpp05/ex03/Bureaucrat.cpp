@@ -6,11 +6,14 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 22:41:56 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/18 22:00:52 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/11/18 23:37:36 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
+
+class AForm;
 
 Bureaucrat::Bureaucrat()
 {
