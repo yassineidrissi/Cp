@@ -6,11 +6,13 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:01:30 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/16 23:02:38 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/12/16 18:56:56 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
+
+//!*********** Constacturs ************//
 
 Form::Form()
 {
@@ -32,7 +34,7 @@ Form::Form(Form const & src)
 
 Form::Form(std::string name, int gradeTosign, int gradeToExecute)
 {
-	std::cout << GREEN << "Form Constructor Called" << RESET << std::endl;
+	std::cout << GREEN << "Form Constructor Cal" << RESET << std::endl;
 	this->name = name;
 	this->isSigned = false;
 	this->gradeToSign = gradeTosign;
@@ -43,6 +45,8 @@ Form::~Form()
 {
 	std::cout << RED << "Form Destructor Called" << RESET << std::endl;
 }
+
+//!*********** Functions ************//
 
 void Form::beSigned(Bureaucrat &bureaucrat)
 {
@@ -63,15 +67,27 @@ Form & Form::operator=(Form const & src)
 	return (*this);
 }
 
+//!*********** getters ************//
+
+std::string Form::getName() const
+{
+	return (this->name);
+}
 
 bool Form::getIsSigned() const
 {
 	return (this->isSigned);
 }
 
-std::string Form::getName() const
+
+int Form::getGradeToSign() const
 {
-	return (this->name);
+	return (this->gradeToSign);
+}
+
+int Form::getGradeToExecute() const
+{
+	return (this->gradeToExecute);
 }
 
 std::ostream &operator<<(std::ostream &output, const Form &form)

@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:01:38 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/18 22:17:31 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/12/16 18:48:31 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ class Bureaucrat;
 class Form
 {
 	private:
-		std::string name;
+		std::string const name;
 		bool isSigned;
-		int gradeToSign;
-		int gradeToExecute;
+		const int gradeToSign;
+		const int gradeToExecute;
 	public:
 		Form();
 		~Form();
@@ -39,18 +39,12 @@ class Form
 		class GradeTooHighException : public std::exception
 		{
 			public:
-				const char* what() const throw()
-				{
-					return (YELLOW "Grade is too high" RESET);
-				}
+				const char* what() const throw();
 		};
 		class GradeTooLowException : public std::exception
 		{
 			public:
-				const char* what() const throw()
-				{
-					return (YELLOW "Grade is too low" RESET);
-				}
+				const char* what() const throw();
 		};
 	 
 };

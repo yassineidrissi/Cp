@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 10:07:06 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/17 21:55:57 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/12/16 18:34:59 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,12 @@
 int main( void )
 {
     try {
-        Bureaucrat bureaucrat("ash", 150);
+        Bureaucrat bureaucrat("ash", 250);
 
         std::cout << bureaucrat << std::endl;
 
         bureaucrat.incrementGrade();
-        // bureaucrat.decrementGrade();
-    } catch (Bureaucrat::GradeTooHighException &e) {
+    } catch (std::exception &e) {
         std::cout << e.what() << std::endl;
     }
     return EXIT_SUCCESS;
