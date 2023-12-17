@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:01:30 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/12/16 18:56:56 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/12/17 19:23:47 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,20 @@
 
 //!*********** Constacturs ************//
 
-Form::Form()
+Form::Form(): _name("default"), _gradeToSign(150), _gradeToExecute(150)
 {
 	std::cout << GREEN << "Form Default Constructor Called" << RESET << std::endl;
-	this->name = "default";
-	this->isSigned = false;
-	this->gradeToSign = 150;
-	this->gradeToExecute = 150;
+	this->_isSigned = false;
 }
 
-Form::Form(Form const & src)
+Form::Form(Form const & src): _name(src._name), _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute)
 {
-	std::cout << GREEN << "Form Copy Constructor Called" << RESET << std::endl;
-	this->name = src.name;
-	this->isSigned = src.isSigned;
-	this->gradeToExecute = src.gradeToExecute;
-	*this = src;
+    std::cout << GREEN << "Form Copy Constructor Called" << RESET << std::endl;
 }
 
-Form::Form(std::string name, int gradeTosign, int gradeToExecute)
+Form::Form(std::string name, int gradeTosign, int gradeToExecute): _name(name), _gradeToSign(gradeTosign),_gradeToExecute(gradeToExecute)
 {
-	std::cout << GREEN << "Form Constructor Cal" << RESET << std::endl;
-	this->name = name;
-	this->isSigned = false;
-	this->gradeToSign = gradeTosign;
-	this->gradeToExecute = gradeToExecute;
+    std::cout << GREEN << "Form Constructor Cal" << RESET << std::endl;
 }
 
 Form::~Form()
@@ -50,20 +39,20 @@ Form::~Form()
 
 void Form::beSigned(Bureaucrat &bureaucrat)
 {
-	if (bureaucrat.getGrade() > this->gradeToSign)
+	if (bureaucrat.getGrade() > this->getGradeToExecute())
 	{
 		throw Form::GradeTooLowException();
 	}
 	else
 	{
-		this->isSigned = true;
+		this->_isSigned = true;
 	}
 }
 
 Form & Form::operator=(Form const & src)
 {
 	std::cout << BLUE << "Form Assignation Operator Called" << RESET << std::endl;
-	this->isSigned = src.isSigned;
+	this->_isSigned = src._isSigned;
 	return (*this);
 }
 
@@ -71,23 +60,23 @@ Form & Form::operator=(Form const & src)
 
 std::string Form::getName() const
 {
-	return (this->name);
+	return (this->_name);
 }
 
 bool Form::getIsSigned() const
 {
-	return (this->isSigned);
+	return (this->_isSigned);
 }
 
 
 int Form::getGradeToSign() const
 {
-	return (this->gradeToSign);
+	return (this->_gradeToSign);
 }
 
 int Form::getGradeToExecute() const
 {
-	return (this->gradeToExecute);
+	return (this->_gradeToExecute);
 }
 
 std::ostream &operator<<(std::ostream &output, const Form &form)
@@ -96,16 +85,18 @@ std::ostream &operator<<(std::ostream &output, const Form &form)
 	return (output);
 }
 
-void Form::signForm(Bureaucrat &b)
+void Form::setisSigned(bool isSigned)
 {
-	if (!this->isSigned)
-	{
-		std::cout << b.getName() << RED <<" couldn’t sign " << this->name << RESET << std::endl;
-		throw Form::GradeTooLowException();
-	}
-	else
-	{
-		std::cout << b.getName() << GREEN <<" is signed " << this->name << RESET << std::endl;
-		this->isSigned = true;
-	}
+	this->_isSigned = isSigned;
+}
+
+const char* Form::GradeTooHighException::what() const throw()
+{
+	return (RED "Grade is too high" RESET);
+}
+
+
+const char* Form::GradeTooLowException::what() const throw()
+{
+	return (RED "Grade is too low" RESET);
 }

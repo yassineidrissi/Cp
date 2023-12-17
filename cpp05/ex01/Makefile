@@ -6,14 +6,14 @@
 #    By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 17:07:05 by yaidriss          #+#    #+#              #
-#    Updated: 2023/11/12 18:23:55 by yaidriss         ###   ########.fr        #
+#    Updated: 2023/12/17 17:41:41 by yaidriss         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
 FLAGE = -Wall -Wextra -Werror -std=c++98
 NAME = Form 
-SRC = main.cpp Bureaucrat.cpp Form.cpp
+SRC = Bureaucrat.cpp Form.cpp main.cpp
 OBJ = $(SRC:.cpp=.o)
 
 %.o : %.cpp
