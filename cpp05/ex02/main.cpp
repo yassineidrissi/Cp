@@ -5,45 +5,73 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/12 20:55:02 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/18 23:35:46 by yaidriss         ###   ########.fr       */
+/*   Created: 2023/11/12 18:24:23 by yaidriss          #+#    #+#             */
+/*   Updated: 2023/12/17 23:49:13 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
+#include "Form.hpp"
 
-int main() {
-    Bureaucrat bureaucrat1("John", 2);
-    Bureaucrat bureaucrat2("Jane", 50);
+// int main()
+// {
+// 	Bureaucrat john("John", 2);
+// 	Bureaucrat jim("Jim", 149);
+// 	Form form("form", 10, 1);
+// 	try
+// 	{
+// 		std::cout << form << std::endl;
+// 		form.beSigned(john);
+// 		// john.incrementGrade();
+// 		std::cout << form << std::endl;
+// 		form.beSigned(jim);
+// 		std::cout << form << std::endl;
+// 	}
+// 	catch(const std::exception& e)
+// 	{
+// 		std::cerr << e.what() << std::endl;
+// 	}
+// }
+// #include "Form.hpp"
+// #include <iostream>
 
-    ShrubberyCreationForm shrubberyForm("Home");
-    RobotomyRequestForm robotomyForm("Target");
-    PresidentialPardonForm pardonForm("Criminal");
+// int main() {
+//     Form form1("Form 1", 50, 100);
+//     Form form2("Form 2", 75, 150);
+// 	Bureaucrat b("yassine", 2);
+// 	Bureaucrat b1("idrissi", 2);
+//     std::cout << form1 << std::endl;
+//     std::cout << form2 << std::endl;
 
-    std::cout << shrubberyForm << std::endl;
-    std::cout << robotomyForm << std::endl;
-    std::cout << pardonForm << std::endl;
+//     form1.beSigned(b);
+//     form1.signForm(b);
+//     try {
+        
+//         std::cout << "Form 1 signed successfully!" << std::endl;
+//     } catch (std::exception &e) {
+//         std::cout << "Form 1 signing failed: " << e.what() << std::endl;
+//     }
 
-    try {
-        shrubberyForm.beSigned(bureaucrat1);
-        robotomyForm.beSigned(bureaucrat2);
-        pardonForm.beSigned(bureaucrat1);
-        std::cout << "Forms signed successfully!" << std::endl;
-    } catch (std::exception &e) {
-        std::cout << "Form signing failed: " << e.what() << std::endl;
-    }
+//     try {
+//         form2.beSigned(b1);
+//         std::cout << "Form 2 signed successfully!" << std::endl;
+//     } catch (std::exception &e) {
+//         std::cout << "Form 2 signing failed: " << e.what() << std::endl;
+//     }
 
-    try {
-        // bureaucrat1.e executeForm(shrubberyForm);
-        // bureaucrat2.executeForm(robotomyForm);
-        // bureaucrat1.executeForm(pardonForm);
-        std::cout << "Forms executed successfully!" << std::endl;
-    } catch (std::exception &e) {
-        std::cout << "Form execution failed: " << e.what() << std::endl;
-    }
+//     return 0;
+// }
+int main( void )
+{
 
-    return 0;
+    // try {
+    //     Bureaucrat bureaucrat("ash",11);
+    //     Form form("formName", 10, 150);
+
+    //     bureaucrat.signForm(form);
+
+    //     std::cout << form << std::endl;
+    // } catch (std::exception &e) {
+    //     std::cout << e.what() << std::endl;
+    // }
+    return EXIT_SUCCESS;
 }

@@ -14,7 +14,7 @@
 
 #include <iostream>
 #include "Bureaucrat.hpp"
-
+#include <ofstream>
 class AForm
 {
 	private:

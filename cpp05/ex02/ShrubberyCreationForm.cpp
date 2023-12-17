@@ -42,7 +42,27 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
-	(void)executor;
+	if (this->getGradeToExecute > 137 || this->getGradeToSign > 145)
+		throw AForm::GradeTooLowException();
+	else if (this->getIsSigned() == false)
+		throw AForm::FormNotSignedException();
+	// else
+	// {
+	// 	std::ofstream file;
+	// 	file.open(this->_target + "_shrubbery");
+	// 	file << "      /\\\n";
+	// 	file << "     /\\*\\\n";
+	// 	file << "    /\\O\\*\\\n";
+	// 	file << "   /*/\\/\\/\\\n";
+	// 	file << "  /\\O\\/\\*\\/\\\n";
+	// 	file << " /\\*\\/\\*\\/\\/\\\n";
+	// 	file << "/\\O\\/\\/*/\\/O/\\\n";
+	// 	file << "      ||\n";
+	// 	file << "      ||\n";
+	// 	file << "      ||\n";
+	// 	file << std::endl;
+	// 	file.close();
+	// }
 	std::cout << "im inside execute" << std::endl;
 	// if (this->getIsSigned() == false)
 	// 	throw AForm::FormNotSignedException();
