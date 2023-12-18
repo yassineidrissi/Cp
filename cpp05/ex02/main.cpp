@@ -6,11 +6,11 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 18:24:23 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/12/17 23:49:13 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/12/18 22:19:16 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
 // int main()
 // {
@@ -63,15 +63,15 @@
 int main( void )
 {
 
-    // try {
-    //     Bureaucrat bureaucrat("ash",11);
-    //     Form form("formName", 10, 150);
+    try {
+        Bureaucrat bureaucrat("ash",9);
+        AForm form("formName", 10, 150);
 
-    //     bureaucrat.signForm(form);
+        bureaucrat.signForm(form);
 
-    //     std::cout << form << std::endl;
-    // } catch (std::exception &e) {
-    //     std::cout << e.what() << std::endl;
-    // }
+        std::cout << form << std::endl;
+    } catch (std::exception &e) {
+        std::cout << e.what() << std::endl;
+    }
     return EXIT_SUCCESS;
 }

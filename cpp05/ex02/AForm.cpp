@@ -1,42 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AForm.cpp                                           :+:      :+:    :+:   */
+/*   AAForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:01:30 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/16 23:02:38 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/12/18 14:31:53 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
-AForm::AForm()
+//!*********** Constacturs ************//
+
+AForm::AForm(): _name("default"), _gradeToSign(150), _gradeToExecute(150)
 {
 	std::cout << GREEN << "AForm Default Constructor Called" << RESET << std::endl;
-	this->name = "default";
-	this->isSigned = false;
-	this->gradeToSign = 150;
-	this->gradeToExecute = 150;
+	this->_isSigned = false;
 }
 
-AForm::AForm(AForm const & src)
+AForm::AForm(AForm const & src): _name(src._name), _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute)
 {
-	std::cout << GREEN << "AForm Copy Constructor Called" << RESET << std::endl;
-	this->name = src.name;
-	this->isSigned = src.isSigned;
-	this->gradeToExecute = src.gradeToExecute;
-	*this = src;
+    std::cout << GREEN << "AForm Copy Constructor Called" << RESET << std::endl;
 }
 
-AForm::AForm(std::string name, int gradeTosign, int gradeToExecute)
+AForm::AForm(std::string name, int gradeTosign, int gradeToExecute): _name(name), _gradeToSign(gradeTosign),_gradeToExecute(gradeToExecute)
 {
-	std::cout << GREEN << "AForm Constructor Called" << RESET << std::endl;
-	this->name = name;
-	this->isSigned = false;
-	this->gradeToSign = gradeTosign;
-	this->gradeToExecute = gradeToExecute;
+    std::cout << GREEN << "AForm Constructor Cal" << RESET << std::endl;
 }
 
 AForm::~AForm()
@@ -44,34 +35,48 @@ AForm::~AForm()
 	std::cout << RED << "AForm Destructor Called" << RESET << std::endl;
 }
 
+//!*********** Functions ************//
+
 void AForm::beSigned(Bureaucrat &bureaucrat)
 {
-	if (bureaucrat.getGrade() > this->gradeToSign)
+	if (bureaucrat.getGrade() > this->getGradeToExecute())
 	{
 		throw AForm::GradeTooLowException();
 	}
 	else
 	{
-		this->isSigned = true;
+		this->_isSigned = true;
 	}
 }
 
 AForm & AForm::operator=(AForm const & src)
 {
 	std::cout << BLUE << "AForm Assignation Operator Called" << RESET << std::endl;
-	this->isSigned = src.isSigned;
+	this->_isSigned = src._isSigned;
 	return (*this);
 }
 
-
-bool AForm::getIsSigned() const
-{
-	return (this->isSigned);
-}
+//!*********** getters ************//
 
 std::string AForm::getName() const
 {
-	return (this->name);
+	return (this->_name);
+}
+
+bool AForm::getIsSigned() const
+{
+	return (this->_isSigned);
+}
+
+
+int AForm::getGradeToSign() const
+{
+	return (this->_gradeToSign);
+}
+
+int AForm::getGradeToExecute() const
+{
+	return (this->_gradeToExecute);
 }
 
 std::ostream &operator<<(std::ostream &output, const AForm &AForm)
@@ -80,21 +85,18 @@ std::ostream &operator<<(std::ostream &output, const AForm &AForm)
 	return (output);
 }
 
-void AForm::signForm(Bureaucrat &b)
+void AForm::setisSigned(bool isSigned)
 {
-	if (!this->isSigned)
-	{
-		std::cout << b.getName() << RED <<" couldn’t sign " << this->name << RESET << std::endl;
-		throw AForm::GradeTooLowException();
-	}
-	else
-	{
-		std::cout << b.getName() << GREEN <<" is signed " << this->name << RESET << std::endl;
-		this->isSigned = true;
-	}
+	this->_isSigned = isSigned;
 }
 
-int AForm::getGradeToExecute() const
+const char* AForm::GradeTooHighException::what() const throw()
 {
-	return (this->gradeToSign);
+	return (RED "Grade is too high" RESET);
+}
+
+
+const char* AForm::GradeTooLowException::what() const throw()
+{
+	return (RED "Grade is too low" RESET);
 }

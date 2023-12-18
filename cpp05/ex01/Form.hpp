@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:01:38 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/12/17 19:26:50 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/12/18 23:19:05 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,15 @@ class Form
 			public:
 				virtual const char* what() const throw();
 		};
-	 
+		class FailToSignedException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+	 	class FailToExecuteException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		}
 };
 std::ostream &operator<<(std::ostream &output, const Form &Form);

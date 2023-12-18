@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AForm.hpp                                           :+:      :+:    :+:   */
+/*   AAForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:01:38 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/16 23:07:23 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/12/18 14:32:26 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,15 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
-
 class Bureaucrat;
 
 class AForm
 {
 	private:
-		std::string name;
-		bool isSigned;
-		int gradeToSign;
-		int gradeToExecute;
+		std::string const _name;
+		bool _isSigned;
+		const int _gradeToSign;
+		const int _gradeToExecute;
 	public:
 		AForm();
 		~AForm();
@@ -33,26 +32,29 @@ class AForm
 		AForm & operator=(AForm const & src);
 		std::string getName() const;
 		bool getIsSigned() const;
-		void signForm(Bureaucrat &b);
 		int getGradeToSign() const;
 		int getGradeToExecute() const;
-		void beSigned(Bureaucrat &bureaucrat);//! i don't know how why i used here
-		virtual void execute(Bureaucrat const &executor) const = 0;
+		void setisSigned(bool setisSigned);
+		void beSigned(Bureaucrat &bureaucrat);
 		class GradeTooHighException : public std::exception
 		{
 			public:
-				const char* what() const throw()
-				{
-					return (YELLOW "Grade is too high" RESET);
-				}
+				virtual const char* what() const throw();
 		};
 		class GradeTooLowException : public std::exception
 		{
 			public:
-				const char* what() const throw()
-				{
-					return (YELLOW "Grade is too low" RESET);
-				}
+				virtual const char* what() const throw();
+		};
+		class FailToSignedException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+		class beSignedException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
 		};
 	 
 };

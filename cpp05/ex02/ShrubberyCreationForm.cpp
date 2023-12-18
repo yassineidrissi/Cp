@@ -42,7 +42,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
-	if (this->getGradeToExecute > 137 || this->getGradeToSign > 145)
+	if (this->getGradeToExecute() > 137 || this->getGradeToSign() > 145)
 		throw AForm::GradeTooLowException();
 	else if (this->getIsSigned() == false)
 		throw AForm::FormNotSignedException();
