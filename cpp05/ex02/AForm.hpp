@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAForm.hpp                                          :+:      :+:    :+:   */
+/*   AForm.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:01:38 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/12/18 14:32:26 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/12/19 15:50:53 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ class AForm
 		int getGradeToExecute() const;
 		void setisSigned(bool setisSigned);
 		void beSigned(Bureaucrat &bureaucrat);
+		virtual void execute(Bureaucrat const &executor) const;
 		class GradeTooHighException : public std::exception
 		{
 			public:
@@ -51,11 +52,10 @@ class AForm
 			public:
 				virtual const char* what() const throw();
 		};
-		class beSignedException : public std::exception
+	 	class FailToExecuteException : public std::exception
 		{
 			public:
 				virtual const char* what() const throw();
 		};
-	 
 };
 std::ostream &operator<<(std::ostream &output, const AForm &AForm);

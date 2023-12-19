@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:01:30 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/12/18 14:31:53 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/12/19 17:05:18 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,47 +16,43 @@
 
 AForm::AForm(): _name("default"), _gradeToSign(150), _gradeToExecute(150)
 {
-	std::cout << GREEN << "AForm Default Constructor Called" << RESET << std::endl;
+	std::cout << GREEN << "Form Default Constructor Called" << RESET << std::endl;
 	this->_isSigned = false;
 }
 
 AForm::AForm(AForm const & src): _name(src._name), _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute)
 {
-    std::cout << GREEN << "AForm Copy Constructor Called" << RESET << std::endl;
+    std::cout << GREEN << "Form Copy Constructor Called" << RESET << std::endl;
 }
 
 AForm::AForm(std::string name, int gradeTosign, int gradeToExecute): _name(name), _gradeToSign(gradeTosign),_gradeToExecute(gradeToExecute)
 {
-    std::cout << GREEN << "AForm Constructor Cal" << RESET << std::endl;
+    std::cout << GREEN << "Form Constructor Cal" << RESET << std::endl;
 }
 
 AForm::~AForm()
 {
-	std::cout << RED << "AForm Destructor Called" << RESET << std::endl;
+	std::cout << RED << "Form Destructor Called" << RESET << std::endl;
 }
 
-//!*********** Functions ************//
+// !*********** Functions ************//
 
 void AForm::beSigned(Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() > this->getGradeToExecute())
-	{
 		throw AForm::GradeTooLowException();
-	}
 	else
-	{
 		this->_isSigned = true;
-	}
 }
 
 AForm & AForm::operator=(AForm const & src)
 {
-	std::cout << BLUE << "AForm Assignation Operator Called" << RESET << std::endl;
+	std::cout << BLUE << "Form Assignation Operator Called" << RESET << std::endl;
 	this->_isSigned = src._isSigned;
 	return (*this);
 }
 
-//!*********** getters ************//
+//! *********** getters ************//
 
 std::string AForm::getName() const
 {
@@ -99,4 +95,24 @@ const char* AForm::GradeTooHighException::what() const throw()
 const char* AForm::GradeTooLowException::what() const throw()
 {
 	return (RED "Grade is too low" RESET);
+}
+
+const char* AForm::FailToExecuteException::what() const throw()
+{
+	return (RED "AForm is already signed" RESET);
+}
+
+const char* AForm::FailToSignedException::what() const throw()
+{
+	return (RED "AForm is not signed" RESET);
+}
+
+void AForm::execute(Bureaucrat const &executor) const
+{
+	if (this->getIsSigned() == false)
+		throw AForm::FailToSignedException();
+	else if (executor.getGrade() > this->getGradeToExecute())
+		throw AForm::GradeTooLowException();
+	else
+		std::cout << executor.getName() << " executes " << this->getName() << std::endl;
 }

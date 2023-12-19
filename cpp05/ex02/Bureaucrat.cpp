@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 23:23:19 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/12/18 16:03:42 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/12/19 18:51:43 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name)
 {
-	
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
 	else if (grade > 150)
@@ -85,13 +84,26 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 
 void Bureaucrat::signForm(AForm &b)
 {
-	if (!b.getIsSigned())
+	try
 	{
-		std::cout << this->getName() << RED <<" couldn’t sign " <<  b.getName() << " because " << RESET << std::endl;
-		throw AForm::GradeTooLowException();
+		b.beSigned(*this);
+		std::cout << GREEN << this->_name << " signs " << b.getName() << RESET << std::endl;
 	}
-	else
+	catch(const std::exception& e)
 	{
-		std::cout << this->getName() << GREEN <<" signed by " << b.getName() << RESET << std::endl;
+		std::cout <<  this->_name << RED << " cannot sign " << b.getName() << " because " << RESET << e.what() << std::endl;
+	}
+}
+
+void  Bureaucrat::executeForm(AForm const & form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << GREEN << this->_name << " executes " << form.getName() << RESET << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout <<  this->_name << RED << " cannot execute " << form.getName() << " because " << RESET << e.what() << std::endl;
 	}
 }
