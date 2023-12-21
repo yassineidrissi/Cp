@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yassine <yassine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:51:35 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/15 15:41:29 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/12/21 16:45:16 by yassine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &s
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
 	if (this->getIsSigned() == false)
-		throw AForm::GradeTooHighException();
+		throw AForm::FailToSignedException();
 	else if (executor.getGrade() > this->getGradeToExecute())
 		throw AForm::GradeTooLowException();
 	else
 	{
-		std::cout << "* drilling noises *" << std::endl;
+		std::cout << BLUE << "* drilling noises *" << RESET <<std::endl;
 		if (rand() % 2 == 0)
 			std::cout << this->_target << " has been robotomized successfully." << std::endl;
 		else

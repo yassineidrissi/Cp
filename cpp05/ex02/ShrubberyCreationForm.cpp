@@ -46,25 +46,25 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 		throw AForm::GradeTooLowException();
 	else if (this->getIsSigned() == false)
 		throw AForm::FailToSignedException();
+	// std::cout << "im inside execute" << std::endl;
+	else
+	{
+		std::ofstream file;
+		file.open(this->_target + "_shrubbery");
+		file << "      /\\\n";
+		file << "     /\\*\\\n";
+		file << "    /\\O\\*\\\n";
+		file << "   /*/\\/\\/\\\n";
+		file << "  /\\O\\/\\*\\/\\\n";
+		file << " /\\*\\/\\*\\/\\/\\\n";
+		file << "/\\O\\/\\/*/\\/O/\\\n";
+		file << "      ||\n";
+		file << "      ||\n";
+		file << "      ||\n";
+		file << std::endl;
+		file.close();
+	}
 	(void) executor;
-	std::cout << "im inside execute" << std::endl;
-	// else
-	// {
-	// 	std::ofstream file;
-	// 	file.open(this->_target + "_shrubbery");
-	// 	file << "      /\\\n";
-	// 	file << "     /\\*\\\n";
-	// 	file << "    /\\O\\*\\\n";
-	// 	file << "   /*/\\/\\/\\\n";
-	// 	file << "  /\\O\\/\\*\\/\\\n";
-	// 	file << " /\\*\\/\\*\\/\\/\\\n";
-	// 	file << "/\\O\\/\\/*/\\/O/\\\n";
-	// 	file << "      ||\n";
-	// 	file << "      ||\n";
-	// 	file << "      ||\n";
-	// 	file << std::endl;
-	// 	file.close();
-	// }
 	// if (this->getIsSigned() == false)
 	// 	throw AForm::FormNotSignedException();
 	// else if (executor.getGrade() > this->getGradeToExecute())
