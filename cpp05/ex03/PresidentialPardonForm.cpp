@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:52:03 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/15 15:43:43 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/12/21 20:13:15 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 void PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
 	if (this->getIsSigned() == false)
-		throw AForm::GradeTooHighException();// changet to getGarde To sign
+		throw AForm::GTHighE();// changet to getGarde To sign
 	else if (executor.getGrade() > this->getGradeToExecute())
-		throw AForm::GradeTooLowException();
+		throw AForm::GTLowE();
 	else
 		std::cout << this->_target << " has been pardoned by Zafod Beeblebrox." << std::endl;
 }

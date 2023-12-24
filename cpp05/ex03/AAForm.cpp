@@ -46,7 +46,7 @@ void AForm::beSigned(Bureaucrat &bureaucrat)
 	if (bureaucrat.getGrade() > this->gradeToSign)
 	{
 		std::cout << bureaucrat.getName() << RED <<" is not signed" << this->name << RESET << std::endl;
-		throw AForm::GradeTooLowException();
+		throw AForm::GTLowE();
 	}
 	else
 	{

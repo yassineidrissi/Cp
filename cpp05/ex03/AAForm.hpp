@@ -34,7 +34,7 @@ class AForm
 		int getGradeToExecute() const;
 		void beSigned(Bureaucrat &bureaucrat);//! i don't know how why i used here
 		virtual void execute(Bureaucrat const &executor) const = 0;
-		class GradeTooHighException : public std::exception
+		class GTHighE : public std::exception
 		{
 			public:
 				const char* what() const throw()
@@ -42,7 +42,7 @@ class AForm
 					return (YELLOW "Grade is too high" RESET);
 				}
 		};
-		class GradeTooLowException : public std::exception
+		class GTLowE : public std::exception
 		{
 			public:
 				const char* what() const throw()

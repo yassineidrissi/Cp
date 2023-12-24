@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 23:23:42 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/12/19 17:51:38 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/12/24 00:51:31 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ class Bureaucrat
 		void signForm(AForm &b);
 		void executeForm(AForm const & form);
 		Bureaucrat & operator=(Bureaucrat const & src);
-		class GradeTooHighException : public std::exception
+		class GTHighE : public std::exception
 		{
 			public:
 				virtual const char* what() const throw();
 		};
-		class GradeTooLowException : public std::exception
+		class GTLowE : public std::exception
 		{
 			public:
 				virtual const char* what() const throw();

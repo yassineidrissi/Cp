@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:01:38 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/12/18 23:19:05 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/12/21 20:13:49 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,17 @@ class Form
 		int getGradeToExecute() const;
 		void setisSigned(bool setisSigned);
 		void beSigned(Bureaucrat &bureaucrat);
-		class GradeTooHighException : public std::exception
+		class GTHighE : public std::exception
 		{
 			public:
 				virtual const char* what() const throw();
 		};
-		class GradeTooLowException : public std::exception
+		class GTLowE : public std::exception
 		{
 			public:
 				virtual const char* what() const throw();
 		};
-		class FailToSignedException : public std::exception
+		class FTsignedE : public std::exception
 		{
 			public:
 				virtual const char* what() const throw();

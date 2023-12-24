@@ -37,17 +37,17 @@ class AForm
 		void setisSigned(bool setisSigned);
 		void beSigned(Bureaucrat &bureaucrat);
 		virtual void execute(Bureaucrat const &executor) const;
-		class GradeTooHighException : public std::exception
+		class GTHighE : public std::exception
 		{
 			public:
 				virtual const char* what() const throw();
 		};
-		class GradeTooLowException : public std::exception
+		class GTLowE : public std::exception
 		{
 			public:
 				virtual const char* what() const throw();
 		};
-		class FailToSignedException : public std::exception
+		class FTsignedE : public std::exception
 		{
 			public:
 				virtual const char* what() const throw();

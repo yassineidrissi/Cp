@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 23:23:42 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/12/16 18:32:27 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/12/21 20:13:15 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ class Bureaucrat
 		int getGrade() const;
 		void incrementGrade();
 		void decrementGrade();
-		class GradeTooHighException : public std::exception
+		class GTHighE : public std::exception
 		{
 			public:
 				virtual const char* what() const throw();
 		};
-		class GradeTooLowException : public std::exception
+		class GTLowE : public std::exception
 		{
 			public:
 				virtual const char* what() const throw();

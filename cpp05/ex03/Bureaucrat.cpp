@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 22:41:56 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/12/17 19:00:12 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/12/21 20:13:15 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,14 +65,14 @@ int Bureaucrat::getGrade() const
 void Bureaucrat::incrementGrade()
 {
 	if (this->grade == 150)
-		throw GradeTooHighException();
+		throw GTHighE();
 	this->grade--;
 }
 
 void Bureaucrat::decrementGrade()
 {
 	if (this->grade == 1)
-		throw GradeTooLowException();
+		throw GTLowE();
 	this->grade++;
 }
 

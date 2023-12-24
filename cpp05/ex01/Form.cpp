@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:01:30 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/12/18 23:28:32 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/12/21 20:13:49 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void Form::beSigned(Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() > this->getGradeToExecute())
 	{
-		throw Form::FailToSignedException();
+		throw Form::FTsignedE();
 	}
 	else
 	{
@@ -90,13 +90,13 @@ void Form::setisSigned(bool isSigned)
 	this->_isSigned = isSigned;
 }
 
-const char* Form::GradeTooHighException::what() const throw()
+const char* Form::GTHighE::what() const throw()
 {
 	return (RED "Grade is too high" RESET);
 }
 
 
-const char* Form::GradeTooLowException::what() const throw()
+const char* Form::GTLowE::what() const throw()
 {
 	return (RED "Grade is too low" RESET);
 }
@@ -106,7 +106,7 @@ const char* Form::FailToExecuteException::what() const throw()
 	return (RED "Form is already signed" RESET);
 }
 
-const char* Form::FailToSignedException::what() const throw()
+const char* Form::FTsignedE::what() const throw()
 {
 	return (RED "Form is not signed" RESET);
 }

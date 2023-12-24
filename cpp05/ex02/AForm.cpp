@@ -40,7 +40,7 @@ AForm::~AForm()
 void AForm::beSigned(Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() > this->getGradeToExecute())
-		throw AForm::GradeTooLowException();
+		throw AForm::GTLowE();
 	else
 		this->_isSigned = true;
 }
@@ -86,13 +86,13 @@ void AForm::setisSigned(bool isSigned)
 	this->_isSigned = isSigned;
 }
 
-const char* AForm::GradeTooHighException::what() const throw()
+const char* AForm::GTHighE::what() const throw()
 {
 	return (RED "Grade is too high" RESET);
 }
 
 
-const char* AForm::GradeTooLowException::what() const throw()
+const char* AForm::GTLowE::what() const throw()
 {
 	return (RED "Grade is too low" RESET);
 }
@@ -102,7 +102,7 @@ const char* AForm::FailToExecuteException::what() const throw()
 	return (RED "AForm is already signed" RESET);
 }
 
-const char* AForm::FailToSignedException::what() const throw()
+const char* AForm::FTsignedE::what() const throw()
 {
 	return (RED "AForm is not signed" RESET);
 }
@@ -110,9 +110,9 @@ const char* AForm::FailToSignedException::what() const throw()
 void AForm::execute(Bureaucrat const &executor) const
 {
 	if (this->getIsSigned() == false)
-		throw AForm::FailToSignedException();
+		throw AForm::FTsignedE();
 	else if (executor.getGrade() > this->getGradeToExecute())
-		throw AForm::GradeTooLowException();
+		throw AForm::GTLowE();
 	else
 		std::cout << executor.getName() << " executes " << this->getName() << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 10:07:46 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/12/17 19:00:12 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/12/21 20:13:15 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class Bureaucrat
  	    void signForm( Form& form );
 		std::string getName() const;
 		int getGrade() const;
-		class GradeTooHighException : public std::exception
+		class GTHighE : public std::exception
 		{
 			public:
 				const char* what() const throw()
@@ -47,7 +47,7 @@ class Bureaucrat
 					return (RED "Grade is too high" RESET);
 				}
 		};
-		class GradeTooLowException : public std::exception
+		class GTLowE : public std::exception
 		{
 			public:
 				const char* what() const throw()

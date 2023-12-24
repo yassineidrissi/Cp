@@ -43,9 +43,9 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
 	if (this->getGradeToExecute() > 137 || this->getGradeToSign() > 145)
-		throw AForm::GradeTooLowException();
+		throw AForm::GTLowE();
 	else if (this->getIsSigned() == false)
-		throw AForm::FailToSignedException();
+		throw AForm::FTsignedE();
 	// std::cout << "im inside execute" << std::endl;
 	else
 	{
@@ -68,7 +68,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 	// if (this->getIsSigned() == false)
 	// 	throw AForm::FormNotSignedException();
 	// else if (executor.getGrade() > this->getGradeToExecute())
-	// 	throw AForm::GradeTooLowException();
+	// 	throw AForm::GTLowE();
 	// else
 	// {
 	// 	std::ofstream file;
