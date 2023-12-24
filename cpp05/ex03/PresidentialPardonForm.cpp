@@ -41,6 +41,7 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 
 void PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
+	std::cout << GREEN << std::endl << "Executive " << RESET << std::endl ;
 	if (this->getIsSigned() == false)
 		throw AForm::GTHighE();// changet to getGarde To sign
 	else if (executor.getGrade() > this->getGradeToExecute())

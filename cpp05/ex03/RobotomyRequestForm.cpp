@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:51:35 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/12/21 20:13:15 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/12/21 20:13:49 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &s
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
 	if (this->getIsSigned() == false)
-		throw AForm::GTHighE();
+		throw AForm::FTsignedE();
 	else if (executor.getGrade() > this->getGradeToExecute())
 		throw AForm::GTLowE();
 	else
 	{
-		std::cout << "* drilling noises *" << std::endl;
+		std::cout << BLUE << "* drilling noises *" << RESET <<std::endl;
 		if (rand() % 2 == 0)
 			std::cout << this->_target << " has been robotomized successfully." << std::endl;
 		else
