@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:01:30 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/12/21 20:13:49 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/12/25 23:24:03 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Form::Form(Form const & src): _name(src._name), _gradeToSign(src._gradeToSign), 
 
 Form::Form(std::string name, int gradeTosign, int gradeToExecute): _name(name), _gradeToSign(gradeTosign),_gradeToExecute(gradeToExecute)
 {
-    std::cout << GREEN << "Form Constructor Cal" << RESET << std::endl;
+    std::cout << GREEN << "Form Constructor Call" << RESET << std::endl;
 }
 
 Form::~Form()

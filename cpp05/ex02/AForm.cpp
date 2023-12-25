@@ -27,7 +27,7 @@ AForm::AForm(AForm const & src): _name(src._name), _gradeToSign(src._gradeToSign
 
 AForm::AForm(std::string name, int gradeTosign, int gradeToExecute): _name(name), _gradeToSign(gradeTosign),_gradeToExecute(gradeToExecute)
 {
-    std::cout << GREEN << "Form Constructor Cal" << RESET << std::endl;
+    std::cout << GREEN << "Form Constructor Call" << RESET << std::endl;
 }
 
 AForm::~AForm()

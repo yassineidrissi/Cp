@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:01:38 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/12/21 20:13:49 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/12/25 23:20:51 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,6 @@ class Form
 		{
 			public:
 				virtual const char* what() const throw();
-		}
+		};
 };
 std::ostream &operator<<(std::ostream &output, const Form &Form);

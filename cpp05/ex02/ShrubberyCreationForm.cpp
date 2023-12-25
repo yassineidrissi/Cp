@@ -42,48 +42,37 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
-	if (this->getGradeToExecute() > 137 || this->getGradeToSign() > 145)
-		throw AForm::GTLowE();
-	else if (this->getIsSigned() == false)
+	if (this->getIsSigned() == false)
 		throw AForm::FTsignedE();
-	// std::cout << "im inside execute" << std::endl;
+	else if (this->getGradeToExecute() < executor.getGrade())
+		throw AForm::GTLowE();
 	else
 	{
 		std::ofstream file;
 		file.open(this->_target + "_shrubbery");
-		file << "      /\\\n";
-		file << "     /\\*\\\n";
-		file << "    /\\O\\*\\\n";
-		file << "   /*/\\/\\/\\\n";
-		file << "  /\\O\\/\\*\\/\\\n";
-		file << " /\\*\\/\\*\\/\\/\\\n";
-		file << "/\\O\\/\\/*/\\/O/\\\n";
-		file << "      ||\n";
-		file << "      ||\n";
-		file << "      ||\n";
-		file << std::endl;
-		file.close();
+        file << "\033[32m        /\\\n";
+        file << "       /\\*\\\n";
+        file << "      /\\O\\*\\\n";
+        file << "     /*/\\/\\/\\\n";
+        file << "    /\\O\\/\\*\\/\\\n";
+        file << "   /\\*\\/\\*\\/\\/\\\n";
+        file << "  /\\O\\/\\/*/\\/O/\\\n";
+        file << "\033[33m        ||\n";
+        file << "        ||\n";
+        file << "        ||\n";
+        file << "       /||\\\n";
+        file << "      //||\\\\\n";
+        file << "     // || \\\\\n";
+        file << "    //  ||  \\\\\n";
+        file << "   //   ||   \\\\\n";
+        file << "  //    ||    \\\\\n";
+        file << " //     ||     \\\\\n";
+        file << "// 1337 || 1337 \\\\\n";
+        file << "        ||\n";
+        file << "        ||\n";
+        file << "        ||\n";
+        file << "\033[0m" << std::endl;
+        file << std::endl;
+        file.close();
 	}
-	(void) executor;
-	// if (this->getIsSigned() == false)
-	// 	throw AForm::FormNotSignedException();
-	// else if (executor.getGrade() > this->getGradeToExecute())
-	// 	throw AForm::GTLowE();
-	// else
-	// {
-	// 	std::ofstream file;
-	// 	file.open(this->_target + "_shrubbery");
-	// 	file << "      /\\\n";
-	// 	file << "     /\\*\\\n";
-	// 	file << "    /\\O\\*\\\n";
-	// 	file << "   /*/\\/\\/\\\n";
-	// 	file << "  /\\O\\/\\*\\/\\\n";
-	// 	file << " /\\*\\/\\*\\/\\/\\\n";
-	// 	file << "/\\O\\/\\/*/\\/O/\\\n";
-	// 	file << "      ||\n";
-	// 	file << "      ||\n";
-	// 	file << "      ||\n";
-	// 	file << std::endl;
-	// 	file.close();
-	// }
 }

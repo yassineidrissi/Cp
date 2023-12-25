@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 23:23:42 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/12/24 00:51:31 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/12/25 23:26:43 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 #define GREEN "\033[0;32m"
 #define RESET "\033[0m"
 
-class AForm; // declaration of Form class
+class AForm; 
 
 class Bureaucrat
 {
