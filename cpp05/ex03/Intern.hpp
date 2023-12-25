@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 23:42:34 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/11/18 23:43:42 by yaidriss         ###   ########.fr       */
+/*   Updated: 2023/12/24 22:02:33 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,10 @@ class Intern
 		~Intern();
 		Intern(Intern const & src);
 		Intern & operator=(Intern const & src);
-		Form *makeForm(std::string name, std::string target);
+		AForm *makeForm(std::string name, std::string target);
 		class FormDoesNotExistException : public std::exception
 		{
 			public:
-				const char* what() const throw()
-				{
-					return (RED "Form does not exist" RESET);
-				}
+				const char* what() const throw();
 		};
 };
