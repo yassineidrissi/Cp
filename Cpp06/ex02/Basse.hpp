@@ -1,27 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Basse.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/31 16:27:27 by yassine           #+#    #+#             */
-/*   Updated: 2024/01/01 21:17:15 by yaidriss         ###   ########.fr       */
+/*   Created: 2024/01/01 21:20:47 by yaidriss          #+#    #+#             */
+/*   Updated: 2024/01/01 21:28:13 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Serializer.hpp"
-#include <iostream>
+#pragma once
 
-int main() {
-   Data *d;
-   Data *data = new Data;
-   Serializer serializer;
-   uintptr_t ptr;
-   data->s = "hello world!"; 
-   ptr = serializer.serialize(data);
-   std::cout << YELLOW << "the ptr : " << RESET << ptr << std::endl;
-   d = serializer.deserialize(ptr);
-   std::cout << YELLOW << "the data : " << RESET << d->s << std::endl;
-   return 0;
+#include <iostream>
+#include <string>
+#define RED "\033[0;31m"
+#define YELLOW "\033[0;33m"
+#define BLUE "\033[0;34m"
+#define GREEN "\033[0;32m"
+#define RESET "\033[0m"
+
+class Base
+{
+	~Base();
+	Base *generate(void);
+	void identify(Base* p);
+	void identify(Base& p);
+}
+
+class A: public Base
+{
+	
+}
+
+class B: public Base
+{
+	
+}
+
+class C: public Base
+{
+	
 }

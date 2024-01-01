@@ -1,13 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serialze.cpp                                       :+:      :+:    :+:   */
+/*   Basse.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yassine <yassine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/31 16:30:34 by yassine           #+#    #+#             */
-/*   Updated: 2023/12/31 16:47:19 by yassine          ###   ########.fr       */
+/*   Created: 2024/01/01 21:20:29 by yaidriss          #+#    #+#             */
+/*   Updated: 2024/01/01 21:27:10 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Serializer.hpp"
+#include "Basse.hpp"
+
+Base::~Base()
+{
+	std::cout << GREEN << "Call Destructor" << RESET << std::endl;
+}
