@@ -3,26 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yassine <yassine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 16:27:27 by yassine           #+#    #+#             */
-/*   Updated: 2023/12/31 16:28:06 by yassine          ###   ########.fr       */
+/*   Updated: 2024/01/01 01:02:57 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Serialze.hpp"
+#include "Serializer.hpp"
+#include <iostream>
 
-int main()
-{
-    void *raw;
-    Data *data;
+int main() {
+    // Create a Serializer object
+    Serializer serializer;
 
-    raw = serialize();
-    data = deserialize(raw);
-    std::cout << "s1: " << data->s1 << std::endl;
-    std::cout << "n: " << data->n << std::endl;
-    std::cout << "s2: " << data->s2 << std::endl;
-    delete data;
-    delete static_cast<char*>(raw);
-    return (0);
+    // Create a Data object
+    Data &data = new Data;
+    // Initialize your data here
+
+    // Serialize the Data object
+    uintptr_t serializedData = serializer.serialize(data);
+
+    // Print the serialized data
+    std::cout << "Serialized data: " << serializedData << std::endl;
+
+    // Deserialize the data
+    Data deserializedData = serializer.deserialize(serializedData);
+
+    // Print the deserialized data
+    // You need to implement this part based on how your Data struct is defined
+
+    // Clean up
+    // delete data;
+    // delete deserializedData;
+    
+    return 0;
 }
