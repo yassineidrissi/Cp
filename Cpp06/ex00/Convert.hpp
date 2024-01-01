@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convert.hpp                                        :+:      :+:    :+:   */
+/*   Convert.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 20:58:39 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/12/30 07:59:27 by yaidriss         ###   ########.fr       */
+/*   Updated: 2024/01/02 00:15:34 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 
 class ScalarConverter
 {
+	private:
+	    
 	public:
 		static void convert(std::string s);
 		ScalarConverter();

@@ -1,14 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convert.cpp                                        :+:      :+:    :+:   */
+/*   Convert.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 21:17:24 by yaidriss          #+#    #+#             */
-/*   Updated: 2023/12/30 08:30:26 by yaidriss         ###   ########.fr       */
+/*   Updated: 2024/01/02 00:38:14 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "Convert.hpp"
 
 #include "Convert.hpp"
 
@@ -17,72 +19,151 @@ const char* ScalarConverter::MyException::what() const throw()
 	return (RED "input is not printable" RESET);
 };
 
+void convert_err(void)
+{
+	std::cout << RED << "char : " << RESET << "impossible" << std::endl;
+	std::cout << RED << "int : " << RESET << "impossible" << std::endl;
+	std::cout << RED << "float : " << RESET << "impossible" << std::endl;
+	std::cout << RED << "double : " << RESET << "impossible" << std::endl;
+}
+
+void put_char(double c)
+{
+	if (c > 255 || c < 0)
+		std::cout << RED << "char :" << RESET << " impossible" << std::endl;
+	else if (std::isprint(c))
+		std::cout << GREEN << "char : " << RESET << "'" << c << "'" << std::endl;
+	else
+		std::cout << RED << "char : " << RESET << "Non displayable" << std::endl;
+}
 void convert_char(std::string c)
 {
 	const char *s = c.c_str();
-	std::cout << GREEN << "char : " << RESET << s << std::endl;
+	double d = static_cast<double>(std::atof(s));
+	if (d > 256)
+	{
+		convert_err();
+		return;
+	}
+	put_char(d);
 	std::cout << YELLOW << "int : " << RESET << static_cast<int>(s[0]) << std::endl;
 	std::cout << GREEN << "float : " << RESET << static_cast<float>(s[0]) << std::endl;
 	std::cout << YELLOW << "double : " << RESET << static_cast<double>(s[0]) << std::endl;
 
 }
 
-void convert_int(std::string n)
+void printf_fd(std::string s)
 {
-	const char * s = n.c_str(); 
-	std::cout << GREEN << "char :" << RESET << static_cast<char>(std::atoi(s)) << std::endl;
-	std::cout << YELLOW << "int : " << RESET << static_cast<int>(std::atoi(s))  << std::endl;
-	std::cout << GREEN << "float :" << RESET << static_cast<float>(std::atoi(s)) << std::endl;
-	std::cout << YELLOW << "double :" << RESET << static_cast<double>(std::atoi(s)) << std::endl;
+	int f = std::atof(s.c_str());
+    int n = static_cast<int>(f);
+	if (f - n == 0)
+	{
+		std::cout << GREEN << "float : " << RESET << f << ".0f" << std::endl;
+		std::cout << YELLOW << "double :" << RESET << f << ".0" << std::endl;
+	}
+	else
+	{
+		std::cout << GREEN << "float : " << RESET << f << "f" << std::endl;
+		std::cout << YELLOW << "double :" << RESET << f << std::endl;
+	}
 }
 
-void convert_fd(std::string fd)
+void convert_int(std::string n)
 {
-	const char * s = fd.c_str();	
-	std::cout << GREEN << "char :" << RESET << static_cast<char>(std::atof(s)) << std::endl;
-	std::cout << YELLOW << "int : " << RESET << static_cast<int>(std::atof(s)) << std::endl;
-	std::cout << GREEN << "float : " << RESET << std::atof(s) << std::endl;
-	std::cout << GREEN << "double :" << RESET << static_cast<double>(std::atof(s)) << std::endl;
+
+	double d = static_cast<double>(std::atof(n.c_str()));
+	if (d > INT_MAX || d < INT_MIN)
+	{
+		convert_err();
+		return ;
+	}
+	put_char(d);
+	std::cout << YELLOW << "int : " << RESET << static_cast<int>(d)  << std::endl;
+	printf_fd(n);
 }
+
+
+void convert_fd(std::string d)
+{
+	const char * s = d.c_str();	
+	double fd = static_cast<double>(std::atof(s));
+	put_char(static_cast<int>(std::atof(s)));
+	if (fd > INT_MAX || fd < INT_MIN)
+		std::cout << RED << " int : " << RESET << "impossible" << std::endl;
+	else 
+		std::cout << YELLOW << "int : " << RESET << static_cast<int>(std::atof(s)) << std::endl;
+	printf_fd(s);
+}
+
 
 void convert_handl(std::string s)
 {
-	ScalarConverter::MyException exception;
-	for(size_t i = 0; i < s.length(); i++)
+	if (s == "nan")
 	{
-		if(!std::isdigit(s[i]))
-		{
-			if(i != s.length() - 1 && s[i] != 'f')
-				throw exception.what();
-			else
-				convert_fd(s);
-			
-		}
+		std::cout << GREEN << "char : " << RESET << "impossible" << std::endl;
+		std::cout << YELLOW << "int : " << RESET << "impossible" << std::endl;
+		std::cout << GREEN << "float : " << RESET << "nanf" << std::endl;
+		std::cout << YELLOW << "double : " << RESET << "nan" << std::endl;
 	}
-	convert_int(s);
+	else if (s == "nanf")
+	{
+		std::cout << GREEN << "char : " << RESET << "impossible" << std::endl;
+		std::cout << YELLOW << "int : " << RESET << "impossible" << std::endl;
+		std::cout << GREEN << "float : " << RESET << "nanf" << std::endl;
+		std::cout << YELLOW << "double : " << RESET << "nan" << std::endl;
+	}
+	else if (s == "+inf")
+	{
+		std::cout << GREEN << "char : " << RESET << "impossible" << std::endl;
+		std::cout << YELLOW << "int : " << RESET << "impossible" << std::endl;
+		std::cout << GREEN << "float : " << RESET << "+inff" << std::endl;
+		std::cout << YELLOW << "double : " << RESET << "+inf" << std::endl;
+	}
+	else if (s == "+inff")
+	{
+		std::cout << GREEN << "char : " << RESET << "impossible" << std::endl;
+		std::cout << YELLOW << "int : " << RESET << "impossible" << std::endl;
+		std::cout << GREEN << "float : " << RESET << "+inff" << std::endl;
+		std::cout << YELLOW << "double : " << RESET << "+inf" << std::endl;
+	}
+	else if (s == "-inf")
+	{
+		std::cout << GREEN << "char : " << RESET << "impossible" << std::endl;
+		std::cout << YELLOW << "int : " << RESET << "impossible" << std::endl;
+		std::cout << GREEN << "float : " << RESET << "-inff" << std::endl;
+		std::cout << YELLOW << "double : " << RESET << "-inf" << std::endl;
+	}
 }
 
-void convert_node(std::string s)
+void ScalarConverter::convert(std::string s)
 {
-
-	if(s.length() == 1 && std::isdigit(s[0]))
+	size_t d = 0;
+	size_t f = 0;
+	size_t p = 0;
+	size_t err = 0;
+	size_t i = 0;
+	size_t len = s.length();
+	for(; i < len; i++)
+	{
+		if(s[i] == '.' && !f)
+			p++;
+		else if(s[i] == 'f')
+			f++;
+		else if(std::isdigit(s[i]))
+			d++;
+		else
+			err++;
+	}
+	if(s == "nan" || s == "nanf" || s == "+inf" || s == "+inff" || s == "-inf" || s == "-inff")
+		convert_handl(s);
+	else if((d == len) || (d = len -1 && (s[0] == '-' || s[0] == '+')))
+		convert_int(s);
+	else if(p < 2 && f < 2 && !err)
+		convert_fd(s);
+	else if(i == 1 && std::isdigit(s[0]))
 		convert_int(s);
 	else if(s.length() == 1)
 		convert_char(s);
 	else
-		convert_handl(s);
-		
-};
-
-void ScalarConverter::convert(std::string s)
-{
-	for(size_t i = 0; i < s.length(); i++)
-	{
-		if(!std::isprint(s[i]))
-		{
-			ScalarConverter::MyException ex;
-			throw ex.what();
-		}
-	}
-	convert_node(s);
+		convert_err();
 };
