@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 21:20:29 by yaidriss          #+#    #+#             */
-/*   Updated: 2024/01/02 01:54:55 by yaidriss         ###   ########.fr       */
+/*   Updated: 2024/01/02 04:41:58 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ Base* Base::generate(void)
 	A* a = new A;
 	B* b = new B;
 	C* c = new C;
-	size_t hz = (std::rand() % 3);
-	std::cout << GREEN << "the number generate is " << RESET << hz << std::endl;
+	std::srand(std::time(0)); // use cuttrnt time as seed for random generator 
+	int hz = (std::rand() % 3);
+	// std::cout << GREEN << "the number generate is " << RESET << hz << std::endl;
     switch (hz)
 	{
 	case 0:
