@@ -6,11 +6,9 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 21:17:24 by yaidriss          #+#    #+#             */
-/*   Updated: 2024/01/02 01:24:22 by yaidriss         ###   ########.fr       */
+/*   Updated: 2024/01/02 05:27:31 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "Convert.hpp"
 
 #include "Convert.hpp"
 
@@ -32,7 +30,7 @@ void put_char(double c)
 	if (c > 255 || c < 0)
 		std::cout << RED << "char :" << RESET << " impossible" << std::endl;
 	else if (std::isprint(c))
-		std::cout << GREEN << "char : " << RESET << "'" << c << "'" << std::endl;
+		std::cout << GREEN << "char : " << RESET << "'" << static_cast<char>(c) << "'" << std::endl;
 	else
 		std::cout << RED << "char : " << RESET << "Non displayable" << std::endl;
 }
@@ -54,18 +52,21 @@ void convert_char(std::string c)
 
 void printf_fd(std::string s)
 {
-	int f = std::atof(s.c_str());
-    int n = static_cast<int>(f);
-	if (f - n == 0)
+	s.erase(s.length() - 1);
+	std::istringstream	ss(s);
+	double f;
+	ss >> f;
+
+	double max_val = std::numeric_limits<float>::max();
+	double min_val = std::numeric_limits<float>::lowest(); // or std::numeric_limits<double>::min();
+	if (f > max_val || f < min_val) 
 	{
-		std::cout << GREEN << "float : " << RESET << f << ".0f" << std::endl;
-		std::cout << YELLOW << "double :" << RESET << f << ".0" << std::endl;
+		std::cout << RED << "float : " << RESET << "impossible" << std::endl;
+		std::cout << RED << "double : " << RESET << "impossible" << std::endl;
+		return ;
 	}
-	else
-	{
-		std::cout << GREEN << "float : " << RESET << f << "f" << std::endl;
-		std::cout << YELLOW << "double :" << RESET << f << std::endl;
-	}
+	std::cout << GREEN << "float : " << RESET <<  std::fixed << std::setprecision(1)  << f<< "f" << std::endl;
+	std::cout << YELLOW << "double :" << RESET << f << std::endl;
 }
 
 void convert_int(std::string n)
@@ -74,7 +75,7 @@ void convert_int(std::string n)
 	double d = static_cast<double>(std::atof(n.c_str()));
 	if (d > INT_MAX || d < INT_MIN)
 	{
-		convert_err();
+
 		return ;
 	}
 	put_char(d);

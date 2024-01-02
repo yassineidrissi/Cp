@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 21:20:29 by yaidriss          #+#    #+#             */
-/*   Updated: 2024/01/02 04:41:58 by yaidriss         ###   ########.fr       */
+/*   Updated: 2024/01/02 06:22:37 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Base::~Base()
 {
-	std::cout << GREEN << "Call Destructor" << RESET << std::endl;
+	std::cout << YELLOW << "Call Destructor" << RESET << std::endl;
 }
 
 Base* Base::generate(void)
@@ -24,7 +24,8 @@ Base* Base::generate(void)
 	C* c = new C;
 	std::srand(std::time(0)); // use cuttrnt time as seed for random generator 
 	int hz = (std::rand() % 3);
-	// std::cout << GREEN << "the number generate is " << RESET << hz << std::endl;
+	// std::cout << GREEN << "the number generate is " << RESET << hz << std::endl
+	
     switch (hz)
 	{
 	case 0:
@@ -54,35 +55,57 @@ Base* Base::generate(void)
 
 A::~A()
 {
-	std::cout << GREEN << "Call A Constructor" << RESET <<std::endl;
 }
 
 B::~B()
 {
-	std::cout << GREEN << "Call B Constructor" << RESET <<std::endl;
 }
 
 C::~C()
 {
-	std::cout << GREEN << "Call C Constructor" << RESET <<std::endl;
 }
 
 void Base::identify(Base* p) {
 	if (dynamic_cast<A*>(p)) {
-		std::cout << "A" << std::endl;
+		std::cout << GREEN << "for ptr : A" << RESET << std::endl;
 	} else if (dynamic_cast<B*>(p)) {
-		std::cout << "B" << std::endl;
+		std::cout << GREEN << "for ptr : B" << RESET << std::endl;
 	} else if (dynamic_cast<C*>(p)) {
-		std::cout << "C" << std::endl;
+		std::cout <<GREEN << "for ptr : C" << RESET << std::endl;
+	}
+	else
+	{
+		std::cout << "There is no Data type" << std::endl;
 	}
 }
 
 void Base::identify(Base& p) {
-	if (dynamic_cast<A*>(&p)) {
-		std::cout << "A" << std::endl;
-	} else if (dynamic_cast<B*>(&p)) {
-		std::cout << "B" << std::endl;
-	} else if (dynamic_cast<C*>(&p)) {
-		std::cout << "C" << std::endl;
+	try
+	{
+		__unused Base a = dynamic_cast<A&>(p);
+		std::cout << GREEN  << "for ref : A" << RESET << std::endl;
 	}
+	catch(const std::exception& e)
+	{
+		try
+		{
+			__unused Base b = dynamic_cast<B&>(p);
+			std::cout << GREEN << "for ref : B" << RESET << std::endl;
+		}
+		catch(const std::exception& e)
+		{
+			try
+			{			
+				__unused Base c = dynamic_cast<C&>(p);
+				std::cout << GREEN << "for ref : C" << RESET << std::endl;
+			}
+			catch(const std::exception& e)
+			{
+				std::cout << RED << "There is no Data" << RESET << std::endl;
+			}
+
+			
+		}
+	}
+	
 }
