@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Basse.hpp                                          :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 21:20:47 by yaidriss          #+#    #+#             */
-/*   Updated: 2024/01/01 21:28:13 by yaidriss         ###   ########.fr       */
+/*   Updated: 2024/01/01 23:56:07 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,27 @@
 
 class Base
 {
-	~Base();
+	public:
+	virtual ~Base();
 	Base *generate(void);
 	void identify(Base* p);
 	void identify(Base& p);
-}
+};
 
 class A: public Base
 {
-	
-}
+	public:
+		~A();
+};
 
 class B: public Base
 {
-	
-}
+	public:
+		~B();
+};
 
 class C: public Base
 {
-	
-}
+	public:
+		~C();	
+};

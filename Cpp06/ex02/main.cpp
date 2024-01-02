@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Basse.cpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/01 21:20:29 by yaidriss          #+#    #+#             */
-/*   Updated: 2024/01/01 21:27:10 by yaidriss         ###   ########.fr       */
+/*   Created: 2024/01/01 22:29:43 by yaidriss          #+#    #+#             */
+/*   Updated: 2024/01/02 01:40:26 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Basse.hpp"
+#include "Base.hpp"
 
-Base::~Base()
+int main()
 {
-	std::cout << GREEN << "Call Destructor" << RESET << std::endl;
+	Base *a = new Base;
+	Base *b;
+	b = a->generate();
+	// identify(Base *p);
+	free(b);
 }

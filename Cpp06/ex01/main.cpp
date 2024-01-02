@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 16:27:27 by yassine           #+#    #+#             */
-/*   Updated: 2024/01/01 21:17:15 by yaidriss         ###   ########.fr       */
+/*   Updated: 2024/01/01 22:44:03 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,7 @@ int main() {
    std::cout << YELLOW << "the ptr : " << RESET << ptr << std::endl;
    d = serializer.deserialize(ptr);
    std::cout << YELLOW << "the data : " << RESET << d->s << std::endl;
+   free(d);
    return 0;
+   // system ("leaks ./Serializer");
 }
