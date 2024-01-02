@@ -6,7 +6,7 @@
 /*   By: yaidriss <yaidriss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 21:20:29 by yaidriss          #+#    #+#             */
-/*   Updated: 2024/01/01 23:56:48 by yaidriss         ###   ########.fr       */
+/*   Updated: 2024/01/02 01:54:55 by yaidriss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,24 @@ B::~B()
 C::~C()
 {
 	std::cout << GREEN << "Call C Constructor" << RESET <<std::endl;
+}
+
+void Base::identify(Base* p) {
+	if (dynamic_cast<A*>(p)) {
+		std::cout << "A" << std::endl;
+	} else if (dynamic_cast<B*>(p)) {
+		std::cout << "B" << std::endl;
+	} else if (dynamic_cast<C*>(p)) {
+		std::cout << "C" << std::endl;
+	}
+}
+
+void Base::identify(Base& p) {
+	if (dynamic_cast<A*>(&p)) {
+		std::cout << "A" << std::endl;
+	} else if (dynamic_cast<B*>(&p)) {
+		std::cout << "B" << std::endl;
+	} else if (dynamic_cast<C*>(&p)) {
+		std::cout << "C" << std::endl;
+	}
 }
